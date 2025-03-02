@@ -69,17 +69,34 @@ namespace DBS25P131
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            Form4 Form4 = new Form4();
+            Form4.Show();
+            this.Hide();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-
+            Mainform Mainform = new Mainform();
+            Mainform.Show();
+            this.Hide();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+            Form2 Form2 = new Form2();
+            Form2.Show();
+            this.Hide();
         }
     }
 }

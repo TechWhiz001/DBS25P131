@@ -51,5 +51,23 @@ namespace DBS25P131
         {
 
         }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            Mainform Mainform = new Mainform();
+            Mainform.Show();
+            this.Hide();
+        }
     }
 }
