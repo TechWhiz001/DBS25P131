@@ -1,8 +1,8 @@
 namespace DBS25P131
 {
-    public partial class Form1 : Form
+    public partial class loginForm : Form
     {
-        public Form1()
+        public loginForm()
         {
             InitializeComponent();
         }
@@ -69,16 +69,34 @@ namespace DBS25P131
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Form4 Form4 = new Form4();
-            Form4.Show();
-            this.Hide();
+            forgetPassword fpassword = new forgetPassword();
+            fpassword.Show();
+
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            Mainform Mainform = new Mainform();
-            Mainform.Show();
-            this.Hide();
+            string uId = txtUserName.Text;
+            string password = txtPassword.Text;
+            string role = comboRole.SelectedItem.ToString();
+
+             if(role == "Department Head")
+            {
+                HeadDepartment headdepartment = new HeadDepartment();
+                    headdepartment.Show();
+            }
+            else if (role == "Faculty Member")
+            {
+
+                facultyMember facultymember = new facultyMember();
+                facultymember.Show();
+            }
+            else if (role == "Administrative Staff")
+            {
+                Administrator administrator = new Administrator();
+                administrator.Show();
+            }
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -93,10 +111,9 @@ namespace DBS25P131
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            signUp sign = new signUp();
+            sign.Show();
 
-            Form2 Form2 = new Form2();
-            Form2.Show();
-            this.Hide();
         }
     }
 }

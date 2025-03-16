@@ -1,6 +1,6 @@
 ﻿namespace DBS25P131
 {
-    partial class Form4
+    partial class forgetPassword
     {
         /// <summary>
         /// Required designer variable.
@@ -48,6 +48,7 @@
             label1.Size = new Size(235, 53);
             label1.TabIndex = 0;
             label1.Text = "Forget Password";
+            label1.Click += label1_Click;
             // 
             // label2
             // 
@@ -129,7 +130,7 @@
             textBox4.Size = new Size(218, 25);
             textBox4.TabIndex = 7;
             // 
-            // Form4
+            // forgetPassword
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -144,7 +145,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Name = "Form4";
+            Name = "forgetPassword";
             Text = "Form4";
             ResumeLayout(false);
             PerformLayout();

@@ -1,6 +1,6 @@
 ﻿namespace DBS25P131
 {
-    partial class Form2
+    partial class signUp
     {
         /// <summary>
         /// Required designer variable.
@@ -28,77 +28,68 @@
         /// </summary>
         private void InitializeComponent()
         {
-            comboBox1 = new ComboBox();
-            label4 = new Label();
-            textBox3 = new TextBox();
-            label3 = new Label();
-            textBox1 = new TextBox();
-            label1 = new Label();
+            sRole = new ComboBox();
+            sLabel4 = new Label();
+            sPassword = new TextBox();
+            sLabel3 = new Label();
+            sUserName = new TextBox();
             label = new Label();
-            label2 = new Label();
-            textBox2 = new TextBox();
+            sLabel2 = new Label();
+            sEmail = new TextBox();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            button2 = new Button();
+            signButton = new Button();
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
+            slabel1 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // comboBox1
+            // sRole
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Department Head", "Faculty Members", "Administrative Staff" });
-            comboBox1.Location = new Point(235, 386);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(242, 25);
-            comboBox1.TabIndex = 18;
+            sRole.FormattingEnabled = true;
+            sRole.Items.AddRange(new object[] { "Department Head", "Faculty Member", "Administrative Staff" });
+            sRole.Location = new Point(463, 449);
+            sRole.Name = "sRole";
+            sRole.Size = new Size(242, 25);
+            sRole.TabIndex = 18;
             // 
-            // label4
+            // sLabel4
             // 
-            label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(235, 362);
-            label4.Name = "label4";
-            label4.Size = new Size(100, 23);
-            label4.TabIndex = 17;
-            label4.Text = "Role";
+            sLabel4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            sLabel4.Location = new Point(463, 404);
+            sLabel4.Name = "sLabel4";
+            sLabel4.Size = new Size(100, 23);
+            sLabel4.TabIndex = 17;
+            sLabel4.Text = "Role";
             // 
-            // textBox3
+            // sPassword
             // 
-            textBox3.Location = new Point(235, 309);
-            textBox3.Name = "textBox3";
-            textBox3.PasswordChar = '.';
-            textBox3.Size = new Size(242, 25);
-            textBox3.TabIndex = 16;
-            textBox3.UseSystemPasswordChar = true;
+            sPassword.Location = new Point(463, 363);
+            sPassword.Name = "sPassword";
+            sPassword.PasswordChar = '.';
+            sPassword.Size = new Size(242, 25);
+            sPassword.TabIndex = 16;
+            sPassword.UseSystemPasswordChar = true;
             // 
-            // label3
+            // sLabel3
             // 
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(235, 283);
-            label3.Name = "label3";
-            label3.Size = new Size(100, 23);
-            label3.TabIndex = 15;
-            label3.Text = "Password";
-            label3.Click += label3_Click;
+            sLabel3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            sLabel3.Location = new Point(463, 318);
+            sLabel3.Name = "sLabel3";
+            sLabel3.Size = new Size(100, 23);
+            sLabel3.TabIndex = 15;
+            sLabel3.Text = "Password";
+            sLabel3.Click += label3_Click;
             // 
-            // textBox1
+            // sUserName
             // 
-            textBox1.BorderStyle = BorderStyle.FixedSingle;
-            textBox1.Location = new Point(235, 163);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(242, 25);
-            textBox1.TabIndex = 14;
-            textBox1.TextChanged += textBox1_TextChanged;
-            // 
-            // label1
-            // 
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(235, 137);
-            label1.Name = "label1";
-            label1.Size = new Size(100, 23);
-            label1.TabIndex = 13;
-            label1.Text = "Username";
+            sUserName.BorderStyle = BorderStyle.FixedSingle;
+            sUserName.Location = new Point(463, 202);
+            sUserName.Name = "sUserName";
+            sUserName.Size = new Size(242, 25);
+            sUserName.TabIndex = 14;
+            sUserName.TextChanged += textBox1_TextChanged;
             // 
             // label
             // 
@@ -111,23 +102,23 @@
             label.Text = "Sign up";
             label.Click += label_Click;
             // 
-            // label2
+            // sLabel2
             // 
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(235, 207);
-            label2.Name = "label2";
-            label2.Size = new Size(122, 23);
-            label2.TabIndex = 22;
-            label2.Text = "Email Address";
-            label2.Click += label2_Click;
+            sLabel2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            sLabel2.Location = new Point(463, 239);
+            sLabel2.Name = "sLabel2";
+            sLabel2.Size = new Size(122, 23);
+            sLabel2.TabIndex = 22;
+            sLabel2.Text = "Email Address";
+            sLabel2.Click += label2_Click;
             // 
-            // textBox2
+            // sEmail
             // 
-            textBox2.Location = new Point(235, 231);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(242, 25);
-            textBox2.TabIndex = 23;
-            textBox2.TextChanged += textBox2_TextChanged;
+            sEmail.Location = new Point(463, 279);
+            sEmail.Name = "sEmail";
+            sEmail.Size = new Size(242, 25);
+            sEmail.TabIndex = 23;
+            sEmail.TextChanged += textBox2_TextChanged;
             // 
             // flowLayoutPanel1
             // 
@@ -135,21 +126,21 @@
             flowLayoutPanel1.Dock = DockStyle.Top;
             flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(800, 43);
+            flowLayoutPanel1.Size = new Size(962, 43);
             flowLayoutPanel1.TabIndex = 24;
             // 
-            // button2
+            // signButton
             // 
-            button2.BackColor = Color.FromArgb(19, 16, 16);
-            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(380, 437);
-            button2.Name = "button2";
-            button2.Size = new Size(97, 31);
-            button2.TabIndex = 25;
-            button2.Text = "Sign up";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
+            signButton.BackColor = Color.FromArgb(19, 16, 16);
+            signButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            signButton.ForeColor = Color.White;
+            signButton.Location = new Point(608, 507);
+            signButton.Name = "signButton";
+            signButton.Size = new Size(97, 31);
+            signButton.TabIndex = 25;
+            signButton.Text = "Sign up";
+            signButton.UseVisualStyleBackColor = false;
+            signButton.Click += button2_Click;
             // 
             // panel1
             // 
@@ -159,7 +150,7 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 43);
             panel1.Name = "panel1";
-            panel1.Size = new Size(200, 512);
+            panel1.Size = new Size(200, 609);
             panel1.TabIndex = 26;
             // 
             // pictureBox1
@@ -172,24 +163,34 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // Form2
+            // slabel1
+            // 
+            slabel1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            slabel1.Location = new Point(463, 166);
+            slabel1.Name = "slabel1";
+            slabel1.Size = new Size(122, 23);
+            slabel1.TabIndex = 27;
+            slabel1.Text = "Username";
+            // 
+            // signUp
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 555);
+            ClientSize = new Size(962, 652);
+            Controls.Add(slabel1);
             Controls.Add(panel1);
-            Controls.Add(button2);
+            Controls.Add(signButton);
             Controls.Add(flowLayoutPanel1);
-            Controls.Add(textBox2);
-            Controls.Add(label2);
-            Controls.Add(comboBox1);
-            Controls.Add(label4);
-            Controls.Add(textBox3);
-            Controls.Add(label3);
-            Controls.Add(textBox1);
-            Controls.Add(label1);
-            Name = "Form2";
-            Text = "Form2";
+            Controls.Add(sEmail);
+            Controls.Add(sLabel2);
+            Controls.Add(sRole);
+            Controls.Add(sLabel4);
+            Controls.Add(sPassword);
+            Controls.Add(sLabel3);
+            Controls.Add(sUserName);
+            MinimumSize = new Size(978, 691);
+            Name = "signUp";
+            Text = "SignUp";
             Load += Form2_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -198,18 +199,18 @@
         }
 
         #endregion
-        private ComboBox comboBox1;
-        private Label label4;
-        private TextBox textBox3;
-        private Label label3;
-        private TextBox textBox1;
-        private Label label1;
+        private ComboBox sRole;
+        private Label sLabel4;
+        private TextBox sPassword;
+        private Label sLabel3;
+        private TextBox sUserName;
         private Label label;
-        private Label label2;
-        private TextBox textBox2;
+        private Label sLabel2;
+        private TextBox sEmail;
         private FlowLayoutPanel flowLayoutPanel1;
-        private Button button2;
+        private Button signButton;
         private Panel panel1;
         private PictureBox pictureBox1;
+        private Label slabel1;
     }
 }

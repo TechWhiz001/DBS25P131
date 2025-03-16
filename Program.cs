@@ -11,7 +11,12 @@ namespace DBS25P131
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            //Application.Run(new loginForm());
+            //Application.Run(new DBS25P131.HeadDepartment());
+            //Application.Run(new DBS25P131.HeadDepart());
+
+            Application.Run(new DBS25P131.signUp());
+
         }
     }
 }
