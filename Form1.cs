@@ -6,7 +6,18 @@ namespace DBS25P131
         {
             InitializeComponent();
         }
-
+        private static loginForm instance;
+        public static loginForm Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new loginForm();
+                }
+                return instance;
+            }
+        }
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -76,25 +87,35 @@ namespace DBS25P131
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            string uId = txtUserName.Text;
-            string password = txtPassword.Text;
-            string role = comboRole.SelectedItem.ToString();
-
-             if(role == "Department Head")
+            string storedUserId = txtUserName.Text.Trim();
+            string storedPassword = txtPassword.Text.Trim();
+            if (string.IsNullOrEmpty(storedUserId) || string.IsNullOrEmpty(storedPassword))
+            {
+                MessageBox.Show("Please enter both Username and Password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (storedUserId == "asd" && storedPassword == "123")
             {
                 HeadDepartment headdepartment = new HeadDepartment();
-                    headdepartment.Show();
+                headdepartment.Show();
+                this.Hide();
             }
-            else if (role == "Faculty Member")
-            {
 
+            else if (storedUserId == "dfg" && storedPassword == "456")
+            {
                 facultyMember facultymember = new facultyMember();
                 facultymember.Show();
+                this.Hide();
             }
-            else if (role == "Administrative Staff")
+            else if (storedUserId == "hjk" && storedPassword == "789")
             {
                 Administrator administrator = new Administrator();
                 administrator.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Invalid both Username and Password", "Login faild", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }
@@ -114,6 +135,14 @@ namespace DBS25P131
             signUp sign = new signUp();
             sign.Show();
 
+        }
+        private void txtUserName_Enter(object sender, EventArgs e)
+        {
+            if (txtUserName.Text == "Enter Username")
+            {
+                txtUserName.Text = "";
+                txtUserName.ForeColor = Color.Black; // Change text color to normal
+            }
         }
     }
 }

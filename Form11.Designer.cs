@@ -1,6 +1,6 @@
 ﻿namespace DBS25P131
 {
-    partial class Form11
+    partial class faculty_course_schedule
     {
         /// <summary>
         /// Required designer variable.
@@ -301,14 +301,14 @@
             total_teaching_hours.HeaderText = "End_time";
             total_teaching_hours.Name = "total_teaching_hours";
             // 
-            // Form11
+            // faculty_course_schedule
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(981, 620);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Name = "Form11";
+            Name = "faculty_course_schedule";
             Text = "faculty_course_schedule";
             panel2.ResumeLayout(false);
             panel2.PerformLayout();

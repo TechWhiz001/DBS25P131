@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DBS25P131
 {
-    public partial class Mainform : Form
+    public partial class dashBoard : Form
     {
-        public Mainform()
+        public dashBoard()
         {
             InitializeComponent();
         }
@@ -90,17 +90,13 @@ namespace DBS25P131
         private void button5_Click(object sender, EventArgs e)
         {
 
-            Form6 Form6 = new Form6();
-            Form6.Show();
-            this.Hide();
+           
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
 
-            Form6 Form6 = new Form6();
-            Form6.Show();
-            this.Hide();
+            
         }
     }
 }

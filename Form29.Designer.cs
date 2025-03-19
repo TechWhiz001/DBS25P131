@@ -42,13 +42,18 @@
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
+            label6 = new Label();
+            numericUpDown1 = new NumericUpDown();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
             // panel2
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             panel2.BackColor = Color.FromArgb(240, 187, 120);
+            panel2.Controls.Add(numericUpDown1);
+            panel2.Controls.Add(label6);
             panel2.Controls.Add(label1);
             panel2.Controls.Add(comboBox1);
             panel2.Controls.Add(button6);
@@ -80,6 +85,7 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Classroom", "Lab", "Stationary" });
             comboBox1.Location = new Point(147, 302);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(260, 25);
@@ -89,7 +95,7 @@
             // 
             button6.BackColor = Color.FromArgb(19, 16, 16);
             button6.ForeColor = Color.White;
-            button6.Location = new Point(332, 475);
+            button6.Location = new Point(332, 578);
             button6.Name = "button6";
             button6.Size = new Size(75, 32);
             button6.TabIndex = 47;
@@ -98,7 +104,7 @@
             // 
             // textBox6
             // 
-            textBox6.Location = new Point(147, 425);
+            textBox6.Location = new Point(152, 496);
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(260, 25);
             textBox6.TabIndex = 44;
@@ -119,7 +125,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(147, 368);
+            textBox1.Location = new Point(152, 368);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(260, 25);
             textBox1.TabIndex = 41;
@@ -147,7 +153,7 @@
             // label5
             // 
             label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(33, 427);
+            label5.Location = new Point(33, 496);
             label5.Name = "label5";
             label5.Size = new Size(105, 23);
             label5.TabIndex = 38;
@@ -180,6 +186,23 @@
             label2.TabIndex = 35;
             label2.Text = "User_Id";
             // 
+            // label6
+            // 
+            label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(33, 427);
+            label6.Name = "label6";
+            label6.Size = new Size(117, 23);
+            label6.TabIndex = 51;
+            label6.Text = "Quantity";
+            label6.Click += label6_Click;
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new Point(152, 428);
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(255, 25);
+            numericUpDown1.TabIndex = 52;
+            // 
             // submitRequest
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
@@ -190,6 +213,7 @@
             Text = "Form29";
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
         }
 
@@ -209,5 +233,7 @@
         private Label label3;
         private Label label2;
         private Label label1;
+        private Label label6;
+        private NumericUpDown numericUpDown1;
     }
 }

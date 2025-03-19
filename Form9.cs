@@ -16,7 +16,18 @@ namespace DBS25P131
         {
             InitializeComponent();
         }
-
+        private static VeiwCourses instance;
+        public static VeiwCourses Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new VeiwCourses();
+                }
+                return instance;
+            }
+        }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 

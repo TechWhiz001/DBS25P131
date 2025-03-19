@@ -32,14 +32,12 @@
             comboBox1 = new ComboBox();
             button1 = new Button();
             dataGridView1 = new DataGridView();
-            course_id = new DataGridViewTextBoxColumn();
-            name = new DataGridViewTextBoxColumn();
+            label1 = new Label();
+            button2 = new Button();
             Facultyname = new DataGridViewTextBoxColumn();
             email = new DataGridViewTextBoxColumn();
             Request_date = new DataGridViewTextBoxColumn();
             supervision_hours = new DataGridViewTextBoxColumn();
-            label1 = new Label();
-            button2 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -81,41 +79,11 @@
             // 
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { course_id, name, Facultyname, email, Request_date, supervision_hours });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Facultyname, email, Request_date, supervision_hours });
             dataGridView1.Location = new Point(30, 111);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(842, 430);
             dataGridView1.TabIndex = 0;
-            // 
-            // course_id
-            // 
-            course_id.HeaderText = "Request_id";
-            course_id.Name = "course_id";
-            // 
-            // name
-            // 
-            name.HeaderText = "User_id";
-            name.Name = "name";
-            // 
-            // Facultyname
-            // 
-            Facultyname.HeaderText = "Name";
-            Facultyname.Name = "Facultyname";
-            // 
-            // email
-            // 
-            email.HeaderText = "Request Type";
-            email.Name = "email";
-            // 
-            // Request_date
-            // 
-            Request_date.HeaderText = "Request_date";
-            Request_date.Name = "Request_date";
-            // 
-            // supervision_hours
-            // 
-            supervision_hours.HeaderText = "Status";
-            supervision_hours.Name = "supervision_hours";
             // 
             // label1
             // 
@@ -137,6 +105,26 @@
             button2.TabIndex = 22;
             button2.Text = "Go back";
             button2.UseVisualStyleBackColor = false;
+            // 
+            // Facultyname
+            // 
+            Facultyname.HeaderText = "Name";
+            Facultyname.Name = "Facultyname";
+            // 
+            // email
+            // 
+            email.HeaderText = "Request Type";
+            email.Name = "email";
+            // 
+            // Request_date
+            // 
+            Request_date.HeaderText = "Request_date";
+            Request_date.Name = "Request_date";
+            // 
+            // supervision_hours
+            // 
+            supervision_hours.HeaderText = "Status";
+            supervision_hours.Name = "supervision_hours";
             // 
             // requestStatus
             // 
@@ -160,8 +148,6 @@
         private DataGridView dataGridView1;
         private Label label1;
         private Button button2;
-        private DataGridViewTextBoxColumn course_id;
-        private DataGridViewTextBoxColumn name;
         private DataGridViewTextBoxColumn Facultyname;
         private DataGridViewTextBoxColumn email;
         private DataGridViewTextBoxColumn Request_date;

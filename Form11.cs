@@ -10,13 +10,24 @@ using System.Windows.Forms;
 
 namespace DBS25P131
 {
-    public partial class Form11 : Form
+    public partial class faculty_course_schedule : Form
     {
-        public Form11()
+        public faculty_course_schedule()
         {
             InitializeComponent();
         }
-
+        private static faculty_course_schedule instance;
+        public static faculty_course_schedule Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new faculty_course_schedule();
+                }
+                return instance;
+            }
+        }
         private void label4_Click(object sender, EventArgs e)
         {
 

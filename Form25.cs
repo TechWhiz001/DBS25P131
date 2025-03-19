@@ -12,6 +12,18 @@ namespace DBS25P131
 {
     public partial class FacultyRequest: Form
     {
+        private static WorkloadAssign instance;
+        public static WorkloadAssign Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new WorkloadAssign();
+                }
+                return instance;
+            }
+        }
         public FacultyRequest()
         {
             InitializeComponent();

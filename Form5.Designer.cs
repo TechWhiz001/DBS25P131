@@ -1,6 +1,6 @@
 ﻿namespace DBS25P131
 {
-    partial class Mainform
+    partial class dashBoard
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mainform));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(dashBoard));
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             button1 = new Button();
@@ -72,7 +72,7 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(200, 626);
+            panel1.Size = new Size(200, 652);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
@@ -170,7 +170,7 @@
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(200, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(859, 42);
+            panel2.Size = new Size(762, 42);
             panel2.TabIndex = 1;
             panel2.Paint += panel2_Paint;
             // 
@@ -187,7 +187,7 @@
             // pictureBox2
             // 
             pictureBox2.Image = Properties.Resources.workload_8386487;
-            pictureBox2.Location = new Point(557, 97);
+            pictureBox2.Location = new Point(508, 97);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(194, 163);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
@@ -197,7 +197,7 @@
             // pictureBox4
             // 
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(807, 97);
+            pictureBox4.Location = new Point(756, 97);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(194, 163);
             pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
@@ -227,7 +227,7 @@
             // label1
             // 
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(586, 275);
+            label1.Location = new Point(546, 272);
             label1.Name = "label1";
             label1.Size = new Size(139, 25);
             label1.TabIndex = 11;
@@ -247,7 +247,7 @@
             // label4
             // 
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(827, 275);
+            label4.Location = new Point(766, 275);
             label4.Name = "label4";
             label4.Size = new Size(174, 25);
             label4.TabIndex = 14;
@@ -266,7 +266,7 @@
             // label2
             // 
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(336, 275);
+            label2.Location = new Point(283, 272);
             label2.Name = "label2";
             label2.Size = new Size(164, 25);
             label2.TabIndex = 17;
@@ -275,7 +275,7 @@
             // pictureBox7
             // 
             pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
-            pictureBox7.Location = new Point(306, 97);
+            pictureBox7.Location = new Point(262, 97);
             pictureBox7.Name = "pictureBox7";
             pictureBox7.Size = new Size(194, 163);
             pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
@@ -283,11 +283,11 @@
             pictureBox7.TabStop = false;
             pictureBox7.Click += pictureBox7_Click;
             // 
-            // Mainform
+            // dashBoard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1059, 626);
+            ClientSize = new Size(962, 652);
             Controls.Add(label2);
             Controls.Add(pictureBox7);
             Controls.Add(label5);
@@ -301,8 +301,9 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            FormBorderStyle = FormBorderStyle.None;
-            Name = "Mainform";
+            MinimumSize = new Size(978, 691);
+            Name = "dashBoard";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form5";
             Load += Form5_Load;
             panel1.ResumeLayout(false);

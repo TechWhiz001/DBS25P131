@@ -37,6 +37,7 @@
             panel2 = new Panel();
             label6 = new Label();
             panel1 = new Panel();
+            adminFormPanel = new Panel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
@@ -75,6 +76,7 @@
             FacultyProfiles.TabIndex = 6;
             FacultyProfiles.Text = "Faculty Profiles\r\n";
             FacultyProfiles.UseVisualStyleBackColor = true;
+            FacultyProfiles.Click += FacultyProfiles_Click;
             // 
             // button5
             // 
@@ -87,6 +89,7 @@
             button5.TabIndex = 5;
             button5.Text = "Assign Courses";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button4
             // 
@@ -99,6 +102,7 @@
             button4.TabIndex = 4;
             button4.Text = "Process Faculty Request";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // panel2
             // 
@@ -113,7 +117,7 @@
             // label6
             // 
             label6.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(278, 9);
+            label6.Location = new Point(357, 9);
             label6.Name = "label6";
             label6.Size = new Size(431, 23);
             label6.TabIndex = 0;
@@ -133,11 +137,20 @@
             panel1.Size = new Size(200, 610);
             panel1.TabIndex = 30;
             // 
+            // adminFormPanel
+            // 
+            adminFormPanel.Location = new Point(200, 42);
+            adminFormPanel.Name = "adminFormPanel";
+            adminFormPanel.Size = new Size(762, 610);
+            adminFormPanel.TabIndex = 32;
+            adminFormPanel.Paint += adminFormPanel_Paint;
+            // 
             // Administrator
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(962, 652);
+            Controls.Add(adminFormPanel);
             Controls.Add(panel1);
             Controls.Add(panel2);
             Name = "Administrator";
@@ -158,5 +171,6 @@
         private Panel panel2;
         private Label label6;
         private Panel panel1;
+        private Panel adminFormPanel;
     }
 }

@@ -56,11 +56,11 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(339, 47);
+            label1.Location = new Point(377, 40);
             label1.Name = "label1";
-            label1.Size = new Size(225, 30);
+            label1.Size = new Size(238, 30);
             label1.TabIndex = 0;
-            label1.Text = "Courses Management";
+            label1.Text = "View Assigned Courses";
             // 
             // panel1
             // 
@@ -81,7 +81,7 @@
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { course_id, name, email, contact, designation_id });
             dataGridView1.Location = new Point(48, 88);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(876, 316);
+            dataGridView1.Size = new Size(876, 411);
             dataGridView1.TabIndex = 24;
             // 
             // course_id

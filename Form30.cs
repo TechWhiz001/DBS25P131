@@ -16,5 +16,17 @@ namespace DBS25P131
         {
             InitializeComponent();
         }
+        private static requestStatus instance;
+        public static requestStatus Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new requestStatus();
+                }
+                return instance;
+            }
+        }
     }
 }

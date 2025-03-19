@@ -17,6 +17,18 @@ namespace DBS25P131
         {
             InitializeComponent();
         }
+        private static facultyMember instance;
+        public static facultyMember Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new facultyMember();
+                }
+                return instance;
+            }
+        }
         private void LoadForm(Form form)
         {
 
@@ -48,6 +60,11 @@ namespace DBS25P131
         private void Resources_Click(object sender, EventArgs e)
         {
             LoadForm(new requestStatus());
+        }
+
+        private void facultyMember_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

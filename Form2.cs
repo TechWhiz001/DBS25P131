@@ -10,13 +10,24 @@ using System.Windows.Forms;
 
 namespace DBS25P131
 {
-    public partial class Form2 : Form
+    public partial class signUp : Form
     {
-        public Form2()
+        public signUp()
         {
             InitializeComponent();
         }
-
+        private static signUp instance;
+        public static signUp Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new signUp();
+                }
+                return instance;
+            }
+        }
         private void Form2_Load(object sender, EventArgs e)
         {
 
@@ -64,10 +75,33 @@ namespace DBS25P131
 
         private void button2_Click(object sender, EventArgs e)
         {
+            string signUser = sUserName.Text;
+            string signemail = sEmail.Text;
+            string signpassword = sPassword.Text;
+            string signrole = sRole.SelectedItem.ToString();
+            if (signrole == "Department Head")
+            {
+                HeadDepartment headdepartment = new HeadDepartment();
+                headdepartment.Show();
+            }
+            else if (signrole == "Faculty Member")
+            {
 
-            Mainform Mainform = new Mainform();
-            Mainform.Show();
-            this.Hide();
+                facultyMember facultymember = new facultyMember();
+                facultymember.Show();
+            }
+            else if(signrole == "Administrative Staff")
+            {
+                Administrator administrator = new Administrator();
+                administrator.Show();
+            }
+            
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

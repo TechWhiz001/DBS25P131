@@ -1,6 +1,6 @@
 ﻿namespace DBS25P131
 {
-    partial class Form26
+    partial class WorkloadAssignmentDetails
     {
         /// <summary>
         /// Required designer variable.
@@ -29,26 +29,26 @@
         private void InitializeComponent()
         {
             panel2 = new Panel();
+            textBox4 = new TextBox();
+            textBox3 = new TextBox();
+            textBox2 = new TextBox();
+            textBox1 = new TextBox();
             label4 = new Label();
-            button6 = new Button();
             comboBox1 = new ComboBox();
             label1 = new Label();
             label6 = new Label();
             label5 = new Label();
             label3 = new Label();
             label2 = new Label();
+            button6 = new Button();
             groupBox1 = new GroupBox();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
+            button1 = new Button();
+            label9 = new Label();
+            label8 = new Label();
+            label7 = new Label();
             textBox5 = new TextBox();
             textBox6 = new TextBox();
             textBox7 = new TextBox();
-            label7 = new Label();
-            label8 = new Label();
-            label9 = new Label();
-            button1 = new Button();
             panel2.SuspendLayout();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -74,6 +74,34 @@
             panel2.TabIndex = 4;
             panel2.Paint += panel2_Paint;
             // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(627, 70);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(230, 25);
+            textBox4.TabIndex = 65;
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(160, 121);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(230, 25);
+            textBox3.TabIndex = 64;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(627, 123);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(230, 25);
+            textBox2.TabIndex = 63;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(160, 70);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(230, 25);
+            textBox1.TabIndex = 62;
+            // 
             // label4
             // 
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -82,18 +110,6 @@
             label4.Size = new Size(117, 23);
             label4.TabIndex = 59;
             label4.Text = "Workload limit";
-            // 
-            // button6
-            // 
-            button6.BackColor = Color.FromArgb(19, 16, 16);
-            button6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button6.ForeColor = Color.White;
-            button6.Location = new Point(845, 242);
-            button6.Name = "button6";
-            button6.Size = new Size(75, 32);
-            button6.TabIndex = 52;
-            button6.Text = "Save";
-            button6.UseVisualStyleBackColor = false;
             // 
             // comboBox1
             // 
@@ -150,6 +166,18 @@
             label2.TabIndex = 47;
             label2.Text = "Faculty Name";
             // 
+            // button6
+            // 
+            button6.BackColor = Color.FromArgb(19, 16, 16);
+            button6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button6.ForeColor = Color.White;
+            button6.Location = new Point(845, 242);
+            button6.Name = "button6";
+            button6.Size = new Size(75, 32);
+            button6.TabIndex = 52;
+            button6.Text = "Save";
+            button6.UseVisualStyleBackColor = false;
+            // 
             // groupBox1
             // 
             groupBox1.BackColor = Color.FromArgb(84, 58, 20);
@@ -170,33 +198,44 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Assign Responsibilities";
             // 
-            // textBox1
+            // button1
             // 
-            textBox1.Location = new Point(160, 70);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(230, 25);
-            textBox1.TabIndex = 62;
+            button1.BackColor = Color.FromArgb(19, 16, 16);
+            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(17, 242);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 32);
+            button1.TabIndex = 72;
+            button1.Text = "Goback";
+            button1.UseVisualStyleBackColor = false;
             // 
-            // textBox2
+            // label9
             // 
-            textBox2.Location = new Point(627, 123);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(230, 25);
-            textBox2.TabIndex = 63;
+            label9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.Location = new Point(175, 68);
+            label9.Name = "label9";
+            label9.Size = new Size(100, 23);
+            label9.TabIndex = 71;
+            label9.Text = "Title";
             // 
-            // textBox3
+            // label8
             // 
-            textBox3.Location = new Point(160, 121);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(230, 25);
-            textBox3.TabIndex = 64;
+            label8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.Location = new Point(175, 134);
+            label8.Name = "label8";
+            label8.Size = new Size(100, 23);
+            label8.TabIndex = 70;
+            label8.Text = "Course Id Workload";
             // 
-            // textBox4
+            // label7
             // 
-            textBox4.Location = new Point(627, 70);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(230, 25);
-            textBox4.TabIndex = 65;
+            label7.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.Location = new Point(175, 196);
+            label7.Name = "label7";
+            label7.Size = new Size(100, 23);
+            label7.TabIndex = 69;
+            label7.Text = "Course Id Workload";
             // 
             // textBox5
             // 
@@ -219,53 +258,14 @@
             textBox7.Size = new Size(230, 33);
             textBox7.TabIndex = 68;
             // 
-            // label7
-            // 
-            label7.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(175, 196);
-            label7.Name = "label7";
-            label7.Size = new Size(100, 23);
-            label7.TabIndex = 69;
-            label7.Text = "Course Id Workload";
-            // 
-            // label8
-            // 
-            label8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(175, 134);
-            label8.Name = "label8";
-            label8.Size = new Size(100, 23);
-            label8.TabIndex = 70;
-            label8.Text = "Course Id Workload";
-            // 
-            // label9
-            // 
-            label9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.Location = new Point(175, 68);
-            label9.Name = "label9";
-            label9.Size = new Size(100, 23);
-            label9.TabIndex = 71;
-            label9.Text = "Title";
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.FromArgb(19, 16, 16);
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(17, 242);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 32);
-            button1.TabIndex = 72;
-            button1.Text = "Goback";
-            button1.UseVisualStyleBackColor = false;
-            // 
-            // Form26
+            // WorkloadAssignmentDetails
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(962, 652);
             Controls.Add(groupBox1);
             Controls.Add(panel2);
-            Name = "Form26";
+            Name = "WorkloadAssignmentDetails";
             Text = "Form26";
             Load += Form26_Load;
             panel2.ResumeLayout(false);

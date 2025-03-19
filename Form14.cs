@@ -10,11 +10,23 @@ using System.Windows.Forms;
 
 namespace DBS25P131
 {
-    public partial class Form14: Form
+    public partial class Process_faculty_requests: Form
     {
-        public Form14()
+        public Process_faculty_requests()
         {
             InitializeComponent();
+        }
+        private static Process_faculty_requests instance;
+        public static Process_faculty_requests Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new Process_faculty_requests();
+                }
+                return instance;
+            }
         }
     }
 }

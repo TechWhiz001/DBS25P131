@@ -10,13 +10,24 @@ using System.Windows.Forms;
 
 namespace DBS25P131
 {
-    public partial class Form4 : Form
+    public partial class forgetPassword : Form
     {
-        public Form4()
+        public forgetPassword()
         {
             InitializeComponent();
         }
-
+        private static forgetPassword instance;
+        public static forgetPassword Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new forgetPassword();
+                }
+                return instance;
+            }
+        }
         private void label3_Click(object sender, EventArgs e)
         {
 
@@ -44,9 +55,13 @@ namespace DBS25P131
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Mainform Mainform = new Mainform();
-            Mainform.Show();
-            this.Hide();
+            dashBoard dBoard = new dashBoard();
+            dBoard.Show();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

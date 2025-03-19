@@ -16,7 +16,18 @@ namespace DBS25P131
         {
             InitializeComponent();
         }
-
+        private static AssignCourses instance;
+        public static AssignCourses Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new AssignCourses();
+                }
+                return instance;
+            }
+        }
         private void label2_Click(object sender, EventArgs e)
         {
 

@@ -16,7 +16,18 @@ namespace DBS25P131
         {
             InitializeComponent();
         }
-
+        private static Resource instance;
+        public static Resource Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new Resource();
+                }
+                return instance;
+            }
+        }
         private void Requests_Click(object sender, EventArgs e)
         {
 
@@ -28,6 +39,11 @@ namespace DBS25P131
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DBS25P131
 {
-    public partial class Form19 : Form
+    public partial class Semester : Form
     {
-        public Form19()
+        public Semester()
         {
             InitializeComponent();
         }
@@ -23,6 +23,11 @@ namespace DBS25P131
         }
 
         private void Form19_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

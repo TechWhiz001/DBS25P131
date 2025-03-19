@@ -165,6 +165,7 @@
             Controls.Add(panel2);
             Name = "facultyMember";
             Text = "Form28";
+            Load += facultyMember_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel1.ResumeLayout(false);

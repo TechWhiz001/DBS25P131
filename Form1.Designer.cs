@@ -1,6 +1,6 @@
 ﻿namespace DBS25P131
 {
-    partial class Form1
+    partial class loginForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,16 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(loginForm));
             label = new Label();
-            label1 = new Label();
-            textBox1 = new TextBox();
-            label3 = new Label();
-            textBox3 = new TextBox();
-            label4 = new Label();
-            comboBox1 = new ComboBox();
-            button1 = new Button();
-            linkLabel1 = new LinkLabel();
-            linkLabel2 = new LinkLabel();
+            Llabel1 = new Label();
+            txtUserName = new TextBox();
+            Llabel2 = new Label();
+            txtPassword = new TextBox();
+            loginButton = new Button();
+            linkLabelP = new LinkLabel();
+            linkLabelS = new LinkLabel();
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
@@ -54,109 +53,99 @@
             label.Text = "LOGIN";
             label.Click += label1_Click;
             // 
-            // label1
+            // Llabel1
             // 
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(345, 162);
-            label1.Name = "label1";
-            label1.Size = new Size(100, 23);
-            label1.TabIndex = 1;
-            label1.Text = "Username";
-            label1.Click += label1_Click_1;
+            Llabel1.BackColor = Color.Transparent;
+            Llabel1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Llabel1.Location = new Point(463, 203);
+            Llabel1.Name = "Llabel1";
+            Llabel1.Size = new Size(100, 29);
+            Llabel1.TabIndex = 1;
+            Llabel1.Text = "Username";
+            Llabel1.Click += label1_Click_1;
             // 
-            // textBox1
+            // txtUserName
             // 
-            textBox1.Location = new Point(345, 188);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(269, 25);
-            textBox1.TabIndex = 2;
-            textBox1.TextChanged += textBox1_TextChanged;
+            txtUserName.BackColor = Color.White;
+            txtUserName.ForeColor = Color.Gray;
+            txtUserName.Location = new Point(463, 235);
+            txtUserName.Name = "txtUserName";
+            txtUserName.Size = new Size(269, 25);
+            txtUserName.TabIndex = 2;
+            txtUserName.Text = "Username";
+            txtUserName.TextChanged += textBox1_TextChanged;
             // 
-            // label3
+            // Llabel2
             // 
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(342, 235);
-            label3.Name = "label3";
-            label3.Size = new Size(100, 23);
-            label3.TabIndex = 5;
-            label3.Text = "Password";
-            label3.Click += label3_Click;
+            Llabel2.BackColor = Color.Transparent;
+            Llabel2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Llabel2.Location = new Point(463, 284);
+            Llabel2.Name = "Llabel2";
+            Llabel2.Size = new Size(100, 29);
+            Llabel2.TabIndex = 5;
+            Llabel2.Text = "Password";
+            Llabel2.Click += label3_Click;
             // 
-            // textBox3
+            // txtPassword
             // 
-            textBox3.Location = new Point(342, 261);
-            textBox3.Name = "textBox3";
-            textBox3.PasswordChar = '.';
-            textBox3.Size = new Size(272, 25);
-            textBox3.TabIndex = 6;
-            textBox3.UseSystemPasswordChar = true;
-            textBox3.TextChanged += textBox3_TextChanged;
+            txtPassword.Location = new Point(463, 316);
+            txtPassword.Name = "txtPassword";
+            txtPassword.PasswordChar = '.';
+            txtPassword.Size = new Size(272, 25);
+            txtPassword.TabIndex = 6;
+            txtPassword.UseSystemPasswordChar = true;
+            txtPassword.TextChanged += textBox3_TextChanged;
             // 
-            // label4
+            // loginButton
             // 
-            label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(342, 319);
-            label4.Name = "label4";
-            label4.Size = new Size(100, 23);
-            label4.TabIndex = 7;
-            label4.Text = "Role";
-            label4.Click += label4_Click;
+            loginButton.BackColor = Color.FromArgb(19, 16, 16);
+            loginButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            loginButton.ForeColor = Color.White;
+            loginButton.Location = new Point(638, 386);
+            loginButton.Name = "loginButton";
+            loginButton.Size = new Size(97, 32);
+            loginButton.TabIndex = 9;
+            loginButton.Text = "Login";
+            loginButton.UseVisualStyleBackColor = false;
+            loginButton.Click += button1_Click_1;
             // 
-            // comboBox1
+            // linkLabelP
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Department Head", "Faculty Members", "Administrative Staff" });
-            comboBox1.Location = new Point(342, 345);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(269, 25);
-            comboBox1.TabIndex = 8;
-            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            linkLabelP.AutoSize = true;
+            linkLabelP.BackColor = Color.Transparent;
+            linkLabelP.BorderStyle = BorderStyle.Fixed3D;
+            linkLabelP.LinkColor = Color.FromArgb(64, 64, 64);
+            linkLabelP.Location = new Point(621, 344);
+            linkLabelP.Name = "linkLabelP";
+            linkLabelP.Size = new Size(114, 19);
+            linkLabelP.TabIndex = 10;
+            linkLabelP.TabStop = true;
+            linkLabelP.Text = "Forget Password?";
+            linkLabelP.LinkClicked += linkLabel1_LinkClicked;
             // 
-            // button1
+            // linkLabelS
             // 
-            button1.BackColor = Color.FromArgb(19, 16, 16);
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(517, 386);
-            button1.Name = "button1";
-            button1.Size = new Size(97, 31);
-            button1.TabIndex = 9;
-            button1.Text = "Login";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click_1;
-            // 
-            // linkLabel1
-            // 
-            linkLabel1.AutoSize = true;
-            linkLabel1.LinkColor = Color.FromArgb(64, 64, 64);
-            linkLabel1.Location = new Point(502, 289);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(112, 17);
-            linkLabel1.TabIndex = 10;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "Forget Password?";
-            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
-            // 
-            // linkLabel2
-            // 
-            linkLabel2.AutoSize = true;
-            linkLabel2.LinkColor = Color.Black;
-            linkLabel2.Location = new Point(342, 440);
-            linkLabel2.Name = "linkLabel2";
-            linkLabel2.Size = new Size(212, 17);
-            linkLabel2.TabIndex = 11;
-            linkLabel2.TabStop = true;
-            linkLabel2.Text = "Don't have an account yet? Sign up";
-            linkLabel2.LinkClicked += linkLabel2_LinkClicked;
+            linkLabelS.AutoSize = true;
+            linkLabelS.BackColor = Color.Transparent;
+            linkLabelS.BorderStyle = BorderStyle.Fixed3D;
+            linkLabelS.LinkColor = Color.Black;
+            linkLabelS.Location = new Point(463, 440);
+            linkLabelS.Name = "linkLabelS";
+            linkLabelS.Size = new Size(214, 19);
+            linkLabelS.TabIndex = 11;
+            linkLabelS.TabStop = true;
+            linkLabelS.Text = "Don't have an account yet? Sign up";
+            linkLabelS.LinkClicked += linkLabel2_LinkClicked;
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             panel1.BackColor = Color.FromArgb(240, 187, 120);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label);
             panel1.Location = new Point(2, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(266, 622);
+            panel1.Size = new Size(289, 655);
             panel1.TabIndex = 12;
             panel1.Paint += panel1_Paint;
             // 
@@ -170,23 +159,27 @@
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
             // 
-            // Form1
+            // loginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 622);
+            AutoSize = true;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(962, 652);
             Controls.Add(panel1);
-            Controls.Add(linkLabel2);
-            Controls.Add(linkLabel1);
-            Controls.Add(button1);
-            Controls.Add(comboBox1);
-            Controls.Add(label4);
-            Controls.Add(textBox3);
-            Controls.Add(label3);
-            Controls.Add(textBox1);
-            Controls.Add(label1);
-            Name = "Form1";
-            Text = "Form1";
+            Controls.Add(linkLabelS);
+            Controls.Add(linkLabelP);
+            Controls.Add(loginButton);
+            Controls.Add(txtPassword);
+            Controls.Add(Llabel2);
+            Controls.Add(txtUserName);
+            Controls.Add(Llabel1);
+            MinimumSize = new Size(978, 691);
+            Name = "loginForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Login";
             Load += Form1_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -197,15 +190,13 @@
         #endregion
 
         private Label label;
-        private Label label1;
-        private TextBox textBox1;
-        private Label label3;
-        private TextBox textBox3;
-        private Label label4;
-        private ComboBox comboBox1;
-        private Button button1;
-        private LinkLabel linkLabel1;
-        private LinkLabel linkLabel2;
+        private Label Llabel1;
+        private TextBox txtUserName;
+        private Label Llabel2;
+        private TextBox txtPassword;
+        private Button loginButton;
+        private LinkLabel linkLabelP;
+        private LinkLabel linkLabelS;
         private Panel panel1;
         private PictureBox pictureBox1;
     }

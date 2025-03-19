@@ -16,7 +16,18 @@ namespace DBS25P131
         {
             InitializeComponent();
         }
-
+        private static HeadDepartment instance;
+        public static HeadDepartment Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new HeadDepartment();
+                }
+                return instance;
+            }
+        }
         private void button6_Click(object sender, EventArgs e)
         {
             LoadForm(new WorkloadAssign());

@@ -46,8 +46,9 @@
             // 
             // label6
             // 
+            label6.Anchor = AnchorStyles.None;
             label6.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(285, 9);
+            label6.Location = new Point(18, 13);
             label6.Name = "label6";
             label6.Size = new Size(431, 23);
             label6.TabIndex = 0;
@@ -97,7 +98,7 @@
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(962, 42);
+            panel2.Size = new Size(962, 62);
             panel2.TabIndex = 19;
             // 
             // Requests
@@ -123,9 +124,9 @@
             panel1.Controls.Add(Resources);
             panel1.Controls.Add(Requests);
             panel1.Dock = DockStyle.Left;
-            panel1.Location = new Point(0, 42);
+            panel1.Location = new Point(0, 62);
             panel1.Name = "panel1";
-            panel1.Size = new Size(200, 610);
+            panel1.Size = new Size(200, 590);
             panel1.TabIndex = 18;
             // 
             // panel3
@@ -149,10 +150,12 @@
             // 
             // dashworkpanel
             // 
+            dashworkpanel.BackgroundImage = (Image)resources.GetObject("dashworkpanel.BackgroundImage");
+            dashworkpanel.BackgroundImageLayout = ImageLayout.Stretch;
             dashworkpanel.Dock = DockStyle.Fill;
-            dashworkpanel.Location = new Point(200, 42);
+            dashworkpanel.Location = new Point(200, 62);
             dashworkpanel.Name = "dashworkpanel";
-            dashworkpanel.Size = new Size(762, 610);
+            dashworkpanel.Size = new Size(762, 590);
             dashworkpanel.TabIndex = 20;
             dashworkpanel.Paint += panel4_Paint;
             // 

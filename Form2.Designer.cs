@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(signUp));
             sRole = new ComboBox();
             sLabel4 = new Label();
             sPassword = new TextBox();
@@ -56,6 +57,7 @@
             // 
             // sLabel4
             // 
+            sLabel4.BackColor = Color.Transparent;
             sLabel4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             sLabel4.Location = new Point(463, 404);
             sLabel4.Name = "sLabel4";
@@ -74,6 +76,7 @@
             // 
             // sLabel3
             // 
+            sLabel3.BackColor = Color.Transparent;
             sLabel3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             sLabel3.Location = new Point(463, 318);
             sLabel3.Name = "sLabel3";
@@ -104,6 +107,7 @@
             // 
             // sLabel2
             // 
+            sLabel2.BackColor = Color.Transparent;
             sLabel2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             sLabel2.Location = new Point(463, 239);
             sLabel2.Name = "sLabel2";
@@ -165,6 +169,7 @@
             // 
             // slabel1
             // 
+            slabel1.BackColor = Color.Transparent;
             slabel1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             slabel1.Location = new Point(463, 166);
             slabel1.Name = "slabel1";
@@ -176,6 +181,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(962, 652);
             Controls.Add(slabel1);
             Controls.Add(panel1);

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DBS25P131
 {
-    public partial class Form26 : Form
+    public partial class WorkloadAssignmentDetails : Form
     {
-        public Form26()
+        public WorkloadAssignmentDetails()
         {
             InitializeComponent();
         }

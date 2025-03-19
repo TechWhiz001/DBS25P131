@@ -1,6 +1,6 @@
 ﻿namespace DBS25P131
 {
-    partial class Form22
+    partial class UserProfiles
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             panel2 = new Panel();
+            label5 = new Label();
+            textBox4 = new TextBox();
+            textBox1 = new TextBox();
             label4 = new Label();
             button6 = new Button();
             button5 = new Button();
@@ -43,15 +46,12 @@
             label2 = new Label();
             panel1 = new Panel();
             dataGridView1 = new DataGridView();
-            label1 = new Label();
             course_id = new DataGridViewTextBoxColumn();
             name = new DataGridViewTextBoxColumn();
             email = new DataGridViewTextBoxColumn();
             contact = new DataGridViewTextBoxColumn();
             Role_id = new DataGridViewTextBoxColumn();
-            textBox1 = new TextBox();
-            textBox4 = new TextBox();
-            label5 = new Label();
+            label1 = new Label();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -79,6 +79,29 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(891, 315);
             panel2.TabIndex = 15;
+            // 
+            // label5
+            // 
+            label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Location = new Point(4, 110);
+            label5.Name = "label5";
+            label5.Size = new Size(106, 23);
+            label5.TabIndex = 39;
+            label5.Text = "Email";
+            // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(159, 110);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(260, 25);
+            textBox4.TabIndex = 38;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(600, 20);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(260, 25);
+            textBox1.TabIndex = 37;
             // 
             // label4
             // 
@@ -214,16 +237,6 @@
             dataGridView1.Size = new Size(842, 220);
             dataGridView1.TabIndex = 0;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(417, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(65, 30);
-            label1.TabIndex = 0;
-            label1.Text = "Users";
-            // 
             // course_id
             // 
             course_id.HeaderText = "User_id";
@@ -250,30 +263,17 @@
             Role_id.HeaderText = "Role_id";
             Role_id.Name = "Role_id";
             // 
-            // textBox1
+            // label1
             // 
-            textBox1.Location = new Point(600, 20);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(260, 25);
-            textBox1.TabIndex = 37;
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(417, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(65, 30);
+            label1.TabIndex = 0;
+            label1.Text = "Users";
             // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(159, 110);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(260, 25);
-            textBox4.TabIndex = 38;
-            // 
-            // label5
-            // 
-            label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(4, 110);
-            label5.Name = "label5";
-            label5.Size = new Size(106, 23);
-            label5.TabIndex = 39;
-            label5.Text = "Email";
-            // 
-            // Form22
+            // UserProfiles
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -281,7 +281,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             MinimumSize = new Size(978, 691);
-            Name = "Form22";
+            Name = "UserProfiles";
             Text = "users";
             panel2.ResumeLayout(false);
             panel2.PerformLayout();

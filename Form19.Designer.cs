@@ -1,6 +1,6 @@
 ﻿namespace DBS25P131
 {
-    partial class Form19
+    partial class Semester
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel2 = new Panel();
+            comboBox1 = new ComboBox();
             button6 = new Button();
             button5 = new Button();
             button4 = new Button();
@@ -43,9 +44,8 @@
             dataGridView1 = new DataGridView();
             label1 = new Label();
             course_id = new DataGridViewTextBoxColumn();
-            name = new DataGridViewComboBoxColumn();
+            name = new DataGridViewTextBoxColumn();
             email = new DataGridViewTextBoxColumn();
-            comboBox1 = new ComboBox();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -69,6 +69,16 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(891, 315);
             panel2.TabIndex = 17;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Spring", "Summer", "Fall" });
+            comboBox1.Location = new Point(159, 66);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(260, 25);
+            comboBox1.TabIndex = 34;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // button6
             // 
@@ -145,9 +155,9 @@
             // label8
             // 
             label8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(441, 19);
+            label8.Location = new Point(506, 21);
             label8.Name = "label8";
-            label8.Size = new Size(117, 23);
+            label8.Size = new Size(58, 23);
             label8.TabIndex = 21;
             label8.Text = "Year";
             // 
@@ -187,6 +197,7 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(842, 220);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // label1
             // 
@@ -208,24 +219,13 @@
             name.HeaderText = "Term";
             name.Name = "name";
             name.Resizable = DataGridViewTriState.True;
-            name.SortMode = DataGridViewColumnSortMode.Automatic;
             // 
             // email
             // 
             email.HeaderText = "Year";
             email.Name = "email";
             // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Spring", "Summer", "Fall" });
-            comboBox1.Location = new Point(159, 66);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(260, 25);
-            comboBox1.TabIndex = 34;
-            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
-            // 
-            // Form19
+            // Semester
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -233,7 +233,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             MinimumSize = new Size(978, 691);
-            Name = "Form19";
+            Name = "Semester";
             Text = "semesters";
             Load += Form19_Load;
             panel2.ResumeLayout(false);
@@ -262,7 +262,7 @@
         private Label label1;
         private ComboBox comboBox1;
         private DataGridViewTextBoxColumn course_id;
-        private DataGridViewComboBoxColumn name;
+        private DataGridViewTextBoxColumn name;
         private DataGridViewTextBoxColumn email;
     }
 }

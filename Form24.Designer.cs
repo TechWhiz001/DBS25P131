@@ -28,37 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button4 = new Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WorkloadAssign));
             button2 = new Button();
-            panel1 = new Panel();
+            WorkloadPanel = new Panel();
+            pictureBox7 = new PictureBox();
+            label4 = new Label();
+            pictureBox4 = new PictureBox();
+            label6 = new Label();
             label2 = new Label();
-            dataGridView1 = new DataGridView();
-            faculty_id = new DataGridViewTextBoxColumn();
-            name = new DataGridViewTextBoxColumn();
-            Designation_Id = new DataGridViewTextBoxColumn();
-            Research = new DataGridViewTextBoxColumn();
-            research_area = new DataGridViewTextBoxColumn();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            label1 = new Label();
+            pictureBox1 = new PictureBox();
+            WorkloadPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // button4
-            // 
-            button4.BackColor = Color.FromArgb(19, 16, 16);
-            button4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button4.ForeColor = Color.White;
-            button4.Location = new Point(810, 351);
-            button4.Name = "button4";
-            button4.Size = new Size(95, 34);
-            button4.TabIndex = 31;
-            button4.Text = "View";
-            button4.UseVisualStyleBackColor = false;
             // 
             // button2
             // 
+            button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             button2.BackColor = Color.FromArgb(19, 16, 16);
             button2.ForeColor = Color.White;
-            button2.Location = new Point(21, 353);
+            button2.Location = new Point(15, 546);
             button2.Name = "button2";
             button2.Size = new Size(75, 32);
             button2.TabIndex = 22;
@@ -66,89 +57,122 @@
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
-            // panel1
+            // WorkloadPanel
             // 
-            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            panel1.BackColor = Color.FromArgb(240, 187, 120);
-            panel1.Controls.Add(dataGridView1);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(button4);
-            panel1.Controls.Add(button2);
-            panel1.Location = new Point(12, 84);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(920, 411);
-            panel1.TabIndex = 2;
+            WorkloadPanel.BackColor = Color.FromArgb(240, 187, 120);
+            WorkloadPanel.Controls.Add(label1);
+            WorkloadPanel.Controls.Add(pictureBox1);
+            WorkloadPanel.Controls.Add(pictureBox7);
+            WorkloadPanel.Controls.Add(label4);
+            WorkloadPanel.Controls.Add(pictureBox4);
+            WorkloadPanel.Controls.Add(label6);
+            WorkloadPanel.Controls.Add(label2);
+            WorkloadPanel.Controls.Add(button2);
+            WorkloadPanel.Dock = DockStyle.Fill;
+            WorkloadPanel.Location = new Point(0, 0);
+            WorkloadPanel.MinimumSize = new Size(762, 590);
+            WorkloadPanel.Name = "WorkloadPanel";
+            WorkloadPanel.Size = new Size(762, 590);
+            WorkloadPanel.TabIndex = 2;
+            WorkloadPanel.Paint += panel1_Paint;
+            // 
+            // pictureBox7
+            // 
+            pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
+            pictureBox7.Location = new Point(149, 118);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new Size(173, 119);
+            pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox7.TabIndex = 69;
+            pictureBox7.TabStop = false;
+            pictureBox7.Click += pictureBox7_Click;
+            // 
+            // label4
+            // 
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Location = new Point(439, 262);
+            label4.Name = "label4";
+            label4.Size = new Size(174, 25);
+            label4.TabIndex = 67;
+            label4.Text = "Workload Assignment";
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(441, 118);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(173, 119);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 62;
+            pictureBox4.TabStop = false;
+            pictureBox4.Click += pictureBox4_Click;
+            // 
+            // label6
+            // 
+            label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(158, 259);
+            label6.Name = "label6";
+            label6.Size = new Size(164, 25);
+            label6.TabIndex = 70;
+            label6.Text = "Faculty Management";
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Top;
             label2.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(362, 21);
+            label2.Location = new Point(264, 9);
             label2.Name = "label2";
             label2.Size = new Size(232, 32);
             label2.TabIndex = 58;
             label2.Text = "Worload Assignment";
             // 
-            // dataGridView1
+            // label1
             // 
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { faculty_id, name, Designation_Id, Research, research_area });
-            dataGridView1.Location = new Point(21, 82);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(884, 241);
-            dataGridView1.TabIndex = 59;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(283, 443);
+            label1.Name = "label1";
+            label1.Size = new Size(174, 25);
+            label1.TabIndex = 72;
+            label1.Text = "Workload Assignment";
             // 
-            // faculty_id
+            // pictureBox1
             // 
-            faculty_id.HeaderText = "faculty_id";
-            faculty_id.Name = "faculty_id";
-            // 
-            // name
-            // 
-            name.HeaderText = "Faculty name";
-            name.Name = "name";
-            // 
-            // Designation_Id
-            // 
-            Designation_Id.HeaderText = "Designation_id";
-            Designation_Id.Name = "Designation_Id";
-            // 
-            // Research
-            // 
-            Research.HeaderText = "Research_Area";
-            Research.Name = "Research";
-            // 
-            // research_area
-            // 
-            research_area.HeaderText = "Total workload";
-            research_area.Name = "research_area";
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(285, 299);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(173, 119);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 71;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // WorkloadAssign
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(978, 691);
-            Controls.Add(panel1);
+            ClientSize = new Size(762, 590);
+            Controls.Add(WorkloadPanel);
             FormBorderStyle = FormBorderStyle.None;
-            MinimumSize = new Size(978, 691);
+            MinimumSize = new Size(762, 590);
             Name = "WorkloadAssign";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "WorkloadAssign";
-            panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            WorkloadPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-        private Button button4;
         private Button button2;
-        private Panel panel1;
+        private Panel WorkloadPanel;
         private Label label2;
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn faculty_id;
-        private DataGridViewTextBoxColumn name;
-        private DataGridViewTextBoxColumn Designation_Id;
-        private DataGridViewTextBoxColumn Research;
-        private DataGridViewTextBoxColumn research_area;
+        private PictureBox pictureBox7;
+        private Label label4;
+        private PictureBox pictureBox4;
+        private Label label6;
+        private Label label1;
+        private PictureBox pictureBox1;
     }
 }

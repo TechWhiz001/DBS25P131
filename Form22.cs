@@ -10,11 +10,23 @@ using System.Windows.Forms;
 
 namespace DBS25P131
 {
-    public partial class Form22: Form
+    public partial class UserProfiles: Form
     {
-        public Form22()
+        public UserProfiles()
         {
             InitializeComponent();
+        }
+        private static UserProfiles instance;
+        public static UserProfiles Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new UserProfiles();
+                }
+                return instance;
+            }
         }
     }
 }
