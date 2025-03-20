@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DBS25P131.Data_Acess_layer
+namespace DBS25P131.DataAccessLayer
 
 {
     public class DatabaseHelper
@@ -41,7 +41,7 @@ namespace DBS25P131.Data_Acess_layer
             return new MySqlConnection(GetConnectionString());
         }
 
-        public MySqlDataReader GetData(string query)
+        public MySqlDataReader getData(string query)
         {
             MySqlConnection connection = GetConnection();
             MySqlCommand command = new MySqlCommand(query, connection);
@@ -61,5 +61,5 @@ namespace DBS25P131.Data_Acess_layer
             }
         }
     }
-}
+
 }
