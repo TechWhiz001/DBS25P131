@@ -1,5 +1,6 @@
 ﻿using DBS25P131.DataAccessLayer;
 using DBS25P131.Models;
+using System;
 using System.Collections.Generic;
 
 namespace DBS25P131.BusinessLayer
@@ -43,6 +44,16 @@ namespace DBS25P131.BusinessLayer
                 throw new ArgumentException("Invalid semester ID.");
             }
             return semesterDAL.DeleteSemester(semesterId);
+        }
+
+        // NEW FUNCTION: Get Semester ID by Term and Year
+        public int GetSemesterIdByTermAndYear(string term, int year)
+        {
+            if (string.IsNullOrWhiteSpace(term) || year <= 0)
+            {
+                throw new ArgumentException("Term and year must be valid.");
+            }
+            return semesterDAL.GetSemesterId(term, year);
         }
     }
 }

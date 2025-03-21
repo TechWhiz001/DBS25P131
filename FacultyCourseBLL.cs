@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DBS25P131.DataAccessLayer;
 using DBS25P131.Models;
 
 namespace DBS25P131.BusinessLayer
 {
-
     public class FacultyCourseBLL
     {
         private readonly FacultyCourseDAL _facultyCourseDAL;
@@ -54,6 +50,16 @@ namespace DBS25P131.BusinessLayer
                 throw new ArgumentException("Invalid faculty course ID.");
             }
             return _facultyCourseDAL.DeleteFacultyCourse(facultyCourseId);
+        }
+
+        // NEW FUNCTION: Assign Course to Faculty using courseId, facultyId, and semesterId
+        public bool AssignCourseToFaculty(int courseId, int facultyId, int semesterId)
+        {
+            if (courseId <= 0 || facultyId <= 0 || semesterId <= 0)
+            {
+                throw new ArgumentException("Invalid course ID, faculty ID, or semester ID.");
+            }
+            return _facultyCourseDAL.IsFacultyCourseAssigned(courseId, facultyId, semesterId);
         }
     }
 }

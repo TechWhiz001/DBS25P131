@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DBS25P131.Models;
 using DBS25P131.DataAccessLayer;
 
@@ -52,6 +48,11 @@ namespace DBS25P131.Business_Logic_Layer
 
             return _courseDal.DeleteCourse(courseId);
         }
-    }
 
+        // NEW FUNCTION: Get unassigned courses based on faculty research area
+        public List<Course> GetUnassignedCourses()
+        {
+            return _courseDal.GetUnassignedCourses();
+        }
+    }
 }

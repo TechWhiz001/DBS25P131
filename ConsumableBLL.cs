@@ -12,32 +12,31 @@ namespace DBS25P131.BusinessLayer
     {
         private ConsumableDAL consumableDAL = new ConsumableDAL();
 
-        // Add a new consumable with validation
+        
         public bool AddConsumable(Consumables consumable)
         {
             if (string.IsNullOrWhiteSpace(consumable.ItemName) || consumable.ItemName.Length > 255)
-                return false; // Item Name cannot be empty and must be <= 255 characters
+                return false; 
 
             return consumableDAL.InsertConsumable(consumable);
         }
 
-        // Get all consumables
+        
         public List<Consumables> GetAllConsumables()
         {
             return consumableDAL.GetAllConsumables();
         }
 
 
-        // Update a consumable with validation
         public bool UpdateConsumable(Consumables consumable)
         {
             if (string.IsNullOrWhiteSpace(consumable.ItemName) || consumable.ItemName.Length > 255)
-                return false; // Item Name cannot be empty and must be <= 255 characters
+                return false; 
 
             return consumableDAL.UpdateConsumable(consumable);
         }
 
-        // Delete a consumable
+        
         public bool DeleteConsumable(int id)
         {
             return consumableDAL.DeleteConsumable(id);

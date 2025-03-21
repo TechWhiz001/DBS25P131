@@ -32,7 +32,11 @@ namespace DBS25P131.BusinessLayer
             }
             return projectDAL.InsertProject(project);
         }
-
+        // Get all unassigned projects
+        public List<Project> GetUnassignedProjects()
+        {
+            return projectDAL.GetUnassignedProjects();
+        }
         public bool UpdateProject(Project project)
         {
             if (project == null || project.ProjectId <= 0 || string.IsNullOrWhiteSpace(project.Title))
