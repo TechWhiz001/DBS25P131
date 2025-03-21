@@ -12,7 +12,7 @@ namespace DBS25P131.Models
         public string Username { get; set; }
         public string Email { get; set; }
         public string PasswordHash { get; set; }
-        public Lookup Role { get; set; }  // Foreign key (role_id from Lookup table)
+        public Lookup Role { get; set; }  
 
         public User() { }
 

@@ -9,7 +9,7 @@ namespace DBS25P131.Models
     public class Semester
     {
         public int SemesterId { get; set; }
-        public string Term { get; set; }  // Enum ('Spring', 'Summer', 'Fall')
+        public string Term { get; set; } 
         public int Year { get; set; }
 
         public Semester() { }

@@ -8,15 +8,15 @@ namespace DBS25P131.Models
 {
     public class Room
     {
-        public int RoomId { get; set; }       // Primary Key, Auto-increment
-        public string RoomName { get; set; }  // Room Name
-        public string RoomType { get; set; }  // Enum ('Classroom', 'Lab')
-        public int Capacity { get; set; }     // Capacity
+        public int RoomId { get; set; }       
+        public string RoomName { get; set; } 
+        public string RoomType { get; set; }  
+        public int Capacity { get; set; }     
         public Room()
         {
 
         }
-        // Constructor for Data Retrieval (Includes ID)
+       
         public Room(int roomId, string roomName, string roomType, int capacity)
         {
             RoomId = roomId;
@@ -25,7 +25,7 @@ namespace DBS25P131.Models
             Capacity = capacity;
         }
 
-        // Constructor for Data Adding (Excludes ID)
+       
         public Room(string roomName, string roomType, int capacity)
         {
             RoomName = roomName;

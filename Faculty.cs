@@ -12,10 +12,10 @@ namespace DBS25P131.Models
         public string Name { get; set; }
         public string Email { get; set; }
         public string Contact { get; set; }
-        public Lookup Designation { get; set; }  // Foreign key (designation_id from lookup)
+        public Lookup Designation { get; set; } 
         public string ResearchArea { get; set; }
         public int TotalTeachingHours { get; set; }
-        public User User { get; set; }  // Foreign key (user_id from user table)
+        public User User { get; set; }  
 
         public Faculty() { }
 

@@ -8,11 +8,11 @@ namespace DBS25P131.Models
 {
     public class Project
     {
-        public int ProjectId { get; set; }    // Primary Key, Auto-increment
-        public string Title { get; set; }     // Project Title
-        public string Description { get; set; } // Nullable Text Field
+        public int ProjectId { get; set; }   
+        public string Title { get; set; }     
+        public string Description { get; set; }
         public Project() { }
-        // Constructor for Data Retrieval (Includes ID)
+        
         public Project(int projectId, string title, string description)
         {
             ProjectId = projectId;
@@ -20,7 +20,7 @@ namespace DBS25P131.Models
             Description = description;
         }
        
-        // Constructor for Data Adding (Excludes ID)
+        
         public Project(string title, string description)
         {
             Title = title;
