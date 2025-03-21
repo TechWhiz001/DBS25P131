@@ -14,7 +14,7 @@
 //        public bool InsertUser(User user)
 //        {
 //            string query = "INSERT INTO users (username, email, password_hash, role_id) VALUES (@username, @email, @password_hash, @role_id)";
-            
+
 //            using (var connection = DatabaseHelper.Instance.GetConnection())
 //            using (var command = new MySqlCommand(query, connection))
 //            {

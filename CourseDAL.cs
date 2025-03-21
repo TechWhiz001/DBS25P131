@@ -24,7 +24,7 @@ namespace DBS25P131.DataAccessLayer
                         {
                             CourseId = Convert.ToInt32(reader["course_id"]),
                             CourseName = reader["course_name"].ToString(),
-                            CourseType = reader["course_type"].ToString(), // ✅ Fixed
+                            CourseType = reader["course_type"].ToString(), 
                             CreditHours = Convert.ToInt32(reader["credit_hours"]),
                             ContactHours = Convert.ToInt32(reader["contact_hours"])
                         });
@@ -33,7 +33,34 @@ namespace DBS25P131.DataAccessLayer
             }
             return courses;
         }
+        public List<Course> GetUnassignedCourses()
+        {
+            List<Course> unassignedCourses = new List<Course>();
+            string query = @"
+        SELECT c.course_id, c.course_name, c.course_type
+        FROM courses c
+        LEFT JOIN faculty_courses fc ON c.course_id = fc.course_id
+        WHERE fc.course_id IS NULL"; // No filtering by research area
 
+            using (var connection = DatabaseHelper.Instance.GetConnection())
+            using (var command = new MySqlCommand(query, connection))
+            {
+                connection.Open();
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        unassignedCourses.Add(new Course
+                        {
+                            CourseId = Convert.ToInt32(reader["course_id"]),
+                            CourseName = reader["course_name"].ToString(),
+                            CourseType = reader["course_type"].ToString()
+                        });
+                    }
+                }
+            }
+            return unassignedCourses;
+        }
         public bool InsertCourse(Course course)
         {
             string query = "INSERT INTO courses (course_name, course_type, credit_hours, contact_hours) " +
@@ -41,11 +68,11 @@ namespace DBS25P131.DataAccessLayer
 
             using (var connection = DatabaseHelper.Instance.GetConnection())
             {
-                connection.Open(); // Ensure connection is open
+                connection.Open();
                 using (var command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@course_name", course.CourseName);
-                    command.Parameters.AddWithValue("@course_type", course.CourseType); // ✅ Fixed
+                    command.Parameters.AddWithValue("@course_type", course.CourseType);
                     command.Parameters.AddWithValue("@credit_hours", course.CreditHours);
                     command.Parameters.AddWithValue("@contact_hours", course.ContactHours);
 
@@ -61,11 +88,11 @@ namespace DBS25P131.DataAccessLayer
 
             using (var connection = DatabaseHelper.Instance.GetConnection())
             {
-                connection.Open(); // Ensure connection is open
+                connection.Open(); 
                 using (var command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@course_name", course.CourseName);
-                    command.Parameters.AddWithValue("@course_type", course.CourseType); // ✅ Fixed
+                    command.Parameters.AddWithValue("@course_type", course.CourseType); 
                     command.Parameters.AddWithValue("@credit_hours", course.CreditHours);
                     command.Parameters.AddWithValue("@contact_hours", course.ContactHours);
                     command.Parameters.AddWithValue("@course_id", course.CourseId);

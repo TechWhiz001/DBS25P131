@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DBS25P131.Models;
-using DBS25P131.Models;
 using MySql.Data.MySqlClient;
+using DBS25P131.Models;
 
 namespace DBS25P131.DataAccessLayer
 {
-
     public class FacultyCourseDAL
     {
         public List<FacultyCourse> GetAllFacultyCourses()
@@ -68,6 +63,7 @@ namespace DBS25P131.DataAccessLayer
                 command.Parameters.AddWithValue("@course_id", facultyCourse.Course.CourseId);
                 command.Parameters.AddWithValue("@semester_id", facultyCourse.Semester.SemesterId);
 
+                connection.Open();
                 return command.ExecuteNonQuery() > 0;
             }
         }
@@ -101,5 +97,37 @@ namespace DBS25P131.DataAccessLayer
                 return command.ExecuteNonQuery() > 0;
             }
         }
+
+        // NEW FUNCTION: Check if the course is assigned to a faculty in a given semester
+        public bool IsFacultyCourseAssigned(int courseId, int facultyId, int semesterId)
+        {
+            string query = @"SELECT COUNT(*) FROM faculty_courses 
+                     WHERE course_id = @course_id 
+                     AND faculty_id = @faculty_id 
+                     AND semester_id = @semester_id";
+
+            using (var connection = DatabaseHelper.Instance.GetConnection())
+            {
+                connection.Open(); // Open connection before executing query
+
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@course_id", courseId);
+                    command.Parameters.AddWithValue("@faculty_id", facultyId);
+                    command.Parameters.AddWithValue("@semester_id", semesterId);
+
+                    object result = command.ExecuteScalar();
+
+                    // Ensure result is valid before converting
+                    if (result != null && int.TryParse(result.ToString(), out int count))
+                    {
+                        return count > 0; // True if already assigned, False otherwise
+                    }
+
+                    return false;
+                }
+            }
+        }
+
     }
 }

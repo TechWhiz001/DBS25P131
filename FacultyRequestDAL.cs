@@ -11,14 +11,14 @@ namespace DBS25P131.DataAccessLayer
         {
             List<FacultyRequest> requests = new List<FacultyRequest>();
             string query = @"
-    SELECT fr.request_id, fr.quantity, fr.request_date, 
-           f.faculty_id, f.name AS faculty_name, 
-           C.Consumable_id, C.item_name, 
-           l.lookup_id AS status_id, l.category, l.value AS status_value
-    FROM faculty_requests fr
-    LEFT JOIN faculty f ON fr.faculty_id = f.faculty_id
-    LEFT JOIN Consumables C ON fr.item_id = C.Consumable_id
-    LEFT JOIN lookup l ON fr.status_id = l.lookup_id";
+                SELECT fr.request_id, fr.quantity, fr.request_date, 
+                       f.faculty_id, f.name AS faculty_name, 
+                       C.Consumable_id, C.item_name, 
+                       l.lookup_id AS status_id, l.category, l.value AS status_value
+                FROM faculty_requests fr
+                LEFT JOIN faculty f ON fr.faculty_id = f.faculty_id
+                LEFT JOIN Consumables C ON fr.item_id = C.Consumable_id
+                LEFT JOIN lookup l ON fr.status_id = l.lookup_id";
 
             using (var connection = DatabaseHelper.Instance.GetConnection())
             {
@@ -49,7 +49,7 @@ namespace DBS25P131.DataAccessLayer
                                 Value = reader["status_value"].ToString()
                             },
                             RequestDate = reader.IsDBNull(reader.GetOrdinal("request_date"))
-                                          ? DateTime.MinValue
+                                          ? (DateTime?)null
                                           : Convert.ToDateTime(reader["request_date"])
                         });
                     }
@@ -58,6 +58,61 @@ namespace DBS25P131.DataAccessLayer
             return requests;
         }
 
+        public FacultyRequest GetFacultyRequestById(int requestId)
+        {
+            FacultyRequest request = null;
+            string query = @"
+                SELECT fr.request_id, fr.quantity, fr.request_date, 
+                       f.faculty_id, f.name AS faculty_name, 
+                       C.Consumable_id, C.item_name, 
+                       l.lookup_id AS status_id, l.category, l.value AS status_value
+                FROM faculty_requests fr
+                LEFT JOIN faculty f ON fr.faculty_id = f.faculty_id
+                LEFT JOIN Consumables C ON fr.item_id = C.Consumable_id
+                LEFT JOIN lookup l ON fr.status_id = l.lookup_id
+                WHERE fr.request_id = @request_id";
+
+            using (var connection = DatabaseHelper.Instance.GetConnection())
+            {
+                connection.Open();
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@request_id", requestId);
+                    using (var reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            request = new FacultyRequest
+                            {
+                                RequestId = Convert.ToInt32(reader["request_id"]),
+                                Faculty = new Faculty
+                                {
+                                    FacultyId = Convert.ToInt32(reader["faculty_id"]),
+                                    Name = reader["faculty_name"].ToString()
+                                },
+                                Item = new Consumables
+                                {
+                                    ConsumableId = Convert.ToInt32(reader["Consumable_id"]),
+                                    ItemName = reader["item_name"].ToString()
+                                },
+                                Quantity = Convert.ToInt32(reader["quantity"]),
+                                Status = new Lookup
+                                {
+                                    LookupId = Convert.ToInt32(reader["status_id"]),
+                                    Category = reader["category"].ToString(),
+                                    Value = reader["status_value"].ToString()
+                                },
+                                RequestDate = reader.IsDBNull(reader.GetOrdinal("request_date"))
+              ? (DateTime?)null
+              : Convert.ToDateTime(reader["request_date"])
+
+                            };
+                        }
+                    }
+                }
+            }
+            return request;
+        }
 
         public bool InsertFacultyRequest(FacultyRequest request)
         {
@@ -73,7 +128,7 @@ namespace DBS25P131.DataAccessLayer
                     command.Parameters.AddWithValue("@item_id", request.Item.ConsumableId);
                     command.Parameters.AddWithValue("@quantity", request.Quantity);
                     command.Parameters.AddWithValue("@status_id", request.Status.LookupId);
-                    command.Parameters.AddWithValue("@request_date", request.RequestDate);
+                    command.Parameters.AddWithValue("@request_date", request.RequestDate ?? (object)DBNull.Value);
 
                     return command.ExecuteNonQuery() > 0;
                 }
@@ -96,8 +151,25 @@ namespace DBS25P131.DataAccessLayer
                     command.Parameters.AddWithValue("@item_id", request.Item.ConsumableId);
                     command.Parameters.AddWithValue("@quantity", request.Quantity);
                     command.Parameters.AddWithValue("@status_id", request.Status.LookupId);
-                    command.Parameters.AddWithValue("@request_date", request.RequestDate);
+                    command.Parameters.AddWithValue("@request_date", request.RequestDate ?? (object)DBNull.Value);
                     command.Parameters.AddWithValue("@request_id", request.RequestId);
+
+                    return command.ExecuteNonQuery() > 0;
+                }
+            }
+        }
+
+        public bool UpdateFacultyRequestStatus(int requestId, int statusId)
+        {
+            string query = @"UPDATE faculty_requests SET status_id = @status_id WHERE request_id = @request_id";
+
+            using (var connection = DatabaseHelper.Instance.GetConnection())
+            {
+                connection.Open();
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@status_id", statusId);
+                    command.Parameters.AddWithValue("@request_id", requestId);
 
                     return command.ExecuteNonQuery() > 0;
                 }

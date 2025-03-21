@@ -60,6 +60,15 @@ namespace DBS25P131.DataAccessLayer
                 }
             }
         }
+        public object ExecuteScalar(string query)
+        {
+            using (var connection = GetConnection())
+            using (var command = new MySqlCommand(query, connection))
+            {
+                connection.Open();
+                return command.ExecuteScalar();
+            }
+        }
     }
 
 }

@@ -10,63 +10,128 @@ namespace DBS25P131.DataAccessLayer
         public List<Semester> GetAllSemesters()
         {
             List<Semester> semesters = new List<Semester>();
-            string query = "SELECT semester_id, term, year FROM semester";
+            string query = "SELECT semester_id, term, year FROM semesters";
 
-            using (var connection = DatabaseHelper.Instance.GetConnection())
-            using (var command = new MySqlCommand(query, connection))
-            using (var reader = command.ExecuteReader())
+            try
             {
-                while (reader.Read())
+                using (var connection = DatabaseHelper.Instance.GetConnection())
+                using (var command = new MySqlCommand(query, connection))
                 {
-                    semesters.Add(new Semester
+                    connection.Open();
+                    using (var reader = command.ExecuteReader())
                     {
-                        SemesterId = Convert.ToInt32(reader["semester_id"]),
-                        Term = reader["term"].ToString(),
-                        Year = Convert.ToInt32(reader["year"])
-                    });
+                        while (reader.Read())
+                        {
+                            semesters.Add(new Semester
+                            {
+                                SemesterId = Convert.ToInt32(reader["semester_id"]),
+                                Term = reader["term"].ToString(),
+                                Year = Convert.ToInt32(reader["year"])
+                            });
+                        }
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error fetching semesters: " + ex.Message);
             }
             return semesters;
         }
 
         public bool InsertSemester(Semester semester)
         {
-            string query = "INSERT INTO semester (term, year) VALUES (@term, @year)";
-
-            using (var connection = DatabaseHelper.Instance.GetConnection())
-            using (var command = new MySqlCommand(query, connection))
+            string query = "INSERT INTO semesters (term, year) VALUES (@term, @year)";
+            try
             {
-                command.Parameters.AddWithValue("@term", semester.Term);
-                command.Parameters.AddWithValue("@year", semester.Year);
+                using (var connection = DatabaseHelper.Instance.GetConnection())
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    connection.Open();
+                    command.Parameters.AddWithValue("@term", semester.Term);
+                    command.Parameters.AddWithValue("@year", semester.Year);
 
-                return command.ExecuteNonQuery() > 0;
+                    return command.ExecuteNonQuery() > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error inserting semester: " + ex.Message);
+                return false;
             }
         }
 
         public bool UpdateSemester(Semester semester)
         {
-            string query = "UPDATE semester SET term = @term, year = @year WHERE semester_id = @semester_id";
+            string query = "UPDATE semesters SET term = @term, year = @year WHERE semester_id = @semester_id";
 
-            using (var connection = DatabaseHelper.Instance.GetConnection())
-            using (var command = new MySqlCommand(query, connection))
+            try
             {
-                command.Parameters.AddWithValue("@term", semester.Term);
-                command.Parameters.AddWithValue("@year", semester.Year);
-                command.Parameters.AddWithValue("@semester_id", semester.SemesterId);
+                using (var connection = DatabaseHelper.Instance.GetConnection())
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    connection.Open();
+                    command.Parameters.AddWithValue("@term", semester.Term);
+                    command.Parameters.AddWithValue("@year", semester.Year);
+                    command.Parameters.AddWithValue("@semester_id", semester.SemesterId);
 
-                return command.ExecuteNonQuery() > 0;
+                    return command.ExecuteNonQuery() > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error updating semester: " + ex.Message);
+                return false;
             }
         }
 
         public bool DeleteSemester(int semesterId)
         {
-            string query = "DELETE FROM semester WHERE semester_id = @semester_id";
-
-            using (var connection = DatabaseHelper.Instance.GetConnection())
-            using (var command = new MySqlCommand(query, connection))
+            string query = "DELETE FROM semesters WHERE semester_id = @semester_id";
+            try
             {
-                command.Parameters.AddWithValue("@semester_id", semesterId);
-                return command.ExecuteNonQuery() > 0;
+                using (var connection = DatabaseHelper.Instance.GetConnection())
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    connection.Open();
+                    command.Parameters.AddWithValue("@semester_id", semesterId);
+                    return command.ExecuteNonQuery() > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error deleting semester: " + ex.Message);
+                return false;
+            }
+        }
+
+        // Get semester ID by term and year
+        public int GetSemesterId(string term, int year)
+        {
+            string query = "SELECT semester_id FROM semesters WHERE term = @term AND year = @year";
+
+            try
+            {
+                using (var connection = DatabaseHelper.Instance.GetConnection())
+                {
+                    if (connection == null)
+                        throw new Exception("Database connection is null. Check your database connection settings.");
+
+                    connection.Open();
+                    using (var command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@term", term);
+                        command.Parameters.AddWithValue("@year", year);
+
+                        object result = command.ExecuteScalar();
+                        return result != null ? Convert.ToInt32(result) : -1;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error fetching semester ID: " + ex.Message);
+                return -1;
             }
         }
     }

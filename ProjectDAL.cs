@@ -18,21 +18,51 @@ namespace DBS25P131.DataAccessLayer
 
             using (var connection = DatabaseHelper.Instance.GetConnection())
             using (var command = new MySqlCommand(query, connection))
-            using (var reader = command.ExecuteReader())
             {
-                while (reader.Read())
+                connection.Open();  // Ensure the connection is open before executing
+                using (var reader = command.ExecuteReader())
                 {
-                    projects.Add(new Project
+                    while (reader.Read())
                     {
-                        ProjectId = Convert.ToInt32(reader["project_id"]),
-                        Title = reader["title"].ToString(),
-                        Description = reader["description"] != DBNull.Value ? reader["description"].ToString() : null
-                    });
+                        projects.Add(new Project
+                        {
+                            ProjectId = Convert.ToInt32(reader["project_id"]),
+                            Title = reader["title"].ToString(),
+                            Description = reader["description"] != DBNull.Value ? reader["description"].ToString() : null
+                        });
+                    }
                 }
             }
             return projects;
         }
 
+        public List<Project> GetUnassignedProjects()
+        {
+            List<Project> unassignedProjects = new List<Project>();
+            string query = "SELECT p.project_id, p.title " +
+                           "FROM Projects p " +
+                           "LEFT JOIN faculty_projects fp ON p.project_id = fp.project_id " +
+                           "WHERE fp.project_id IS NULL"; // Select projects that have no faculty assigned
+
+            using (var connection = DatabaseHelper.Instance.GetConnection())
+            using (var command = new MySqlCommand(query, connection))
+            {
+                connection.Open();
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Project project = new Project
+                        {
+                            ProjectId = reader.GetInt32(0),
+                            Title = reader.GetString(1)
+                        };
+                        unassignedProjects.Add(project);
+                    }
+                }
+            }
+            return unassignedProjects;
+        }
         public bool InsertProject(Project project)
         {
             string query = "INSERT INTO projects (title, description) VALUES (@title, @description)";

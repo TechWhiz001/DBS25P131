@@ -20,22 +20,25 @@ namespace DBS25P131.DataAccessLayer
 
             using (var connection = DatabaseHelper.Instance.GetConnection())
             using (var command = new MySqlCommand(query, connection))
-            using (var reader = command.ExecuteReader())
             {
-                while (reader.Read())
+                connection.Open();
+                using (var reader = command.ExecuteReader())
                 {
-                    faculties.Add(new Faculty
+                    while (reader.Read())
                     {
-                        FacultyId = Convert.ToInt32(reader["faculty_id"]),
-                        Name = reader["name"].ToString(),
-                        Email = reader["email"].ToString(),
-                        Contact = reader["contact"].ToString(),
-                        ResearchArea = reader["research_area"].ToString(),
-                        TotalTeachingHours = Convert.ToInt32(reader["total_teaching_hours"])
-                    });
+                        faculties.Add(new Faculty
+                        {
+                            FacultyId = Convert.ToInt32(reader["faculty_id"]),
+                            Name = reader["name"].ToString(),
+                            Email = reader["email"].ToString(),
+                            Contact = reader["contact"].ToString(),
+                            ResearchArea = reader["research_area"].ToString(),
+                            TotalTeachingHours = Convert.ToInt32(reader["total_teaching_hours"])
+                        });
+                    }
                 }
+                return faculties;
             }
-            return faculties;
         }
 
         public bool InsertFaculty(Faculty faculty)
@@ -75,7 +78,25 @@ namespace DBS25P131.DataAccessLayer
                 return command.ExecuteNonQuery() > 0;
             }
         }
+        public string GetFacultyResearchArea(int facultyId)
+        {
+            string researchArea = "";
+            string query = "SELECT research_area FROM faculty WHERE faculty_id = @faculty_id";
 
+            using (var connection = DatabaseHelper.Instance.GetConnection())
+            using (var command = new MySqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@faculty_id", facultyId);
+                connection.Open();
+                var result = command.ExecuteScalar();
+                if (result != null)
+                {
+                    researchArea = result.ToString();
+                }
+            }
+            return researchArea;
+        }
+    
         public bool DeleteFaculty(int facultyId)
         {
             string query = "DELETE FROM faculty WHERE faculty_id = @faculty_id";
