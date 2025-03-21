@@ -1,3 +1,6 @@
+using Microsoft.VisualBasic.ApplicationServices;
+using DBS25P131.DataAccessLayer;
+
 namespace DBS25P131
 {
     public partial class loginForm : Form
@@ -87,37 +90,48 @@ namespace DBS25P131
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            string storedUserId = txtUserName.Text.Trim();
-            string storedPassword = txtPassword.Text.Trim();
-            if (string.IsNullOrEmpty(storedUserId) || string.IsNullOrEmpty(storedPassword))
-            {
-                MessageBox.Show("Please enter both Username and Password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (storedUserId == "asd" && storedPassword == "123")
-            {
-                HeadDepartment headdepartment = new HeadDepartment();
-                headdepartment.Show();
-                this.Hide();
-            }
+            //string storedUserName = txtUserName.Text.Trim();
+            //string storedPassword = txtPassword.Text.Trim();
+            //bool flag = true;
+            //if (string.IsNullOrEmpty(storedUserName) || string.IsNullOrEmpty(storedPassword))
+            //{
+            //    MessageBox.Show("Please enter both Username and Password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
+            //for (int i = 0; i < UserDAL.users.Count; i++)
+            //{
+            //    if (storedUserName == UserDAL.users[i].Username && storedPassword == UserDAL.users[i].PasswordHash)
+            //    {
+            //        if (UserDAL.users[i].RoleId == 1)
+            //        {
+            //            flag = false;
+            //            HeadDepartment headdepartment = new HeadDepartment();
+            //            headdepartment.Show();
+            //            this.Hide();
+            //        }
+            //        else if (UserDAL.users[i].RoleId == 2)
+            //        {
+            //            flag = false;
 
-            else if (storedUserId == "dfg" && storedPassword == "456")
-            {
-                facultyMember facultymember = new facultyMember();
-                facultymember.Show();
-                this.Hide();
-            }
-            else if (storedUserId == "hjk" && storedPassword == "789")
-            {
-                Administrator administrator = new Administrator();
-                administrator.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("Invalid both Username and Password", "Login faild", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            //            facultyMember facultymember = new facultyMember();
+            //            facultymember.Show();
+            //            this.Hide();
+            //        }
+            //        else
+            //        {
+            //            flag = false;
+            //            Administrator administrator = new Administrator();
+            //            administrator.Show();
+            //            this.Hide();
+            //        }
+            //    }
+            //}
+            //if(flag)
+            //{ 
+            //        MessageBox.Show("Invalid both Username and Password", "Login faild", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
 
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -141,7 +155,7 @@ namespace DBS25P131
             if (txtUserName.Text == "Enter Username")
             {
                 txtUserName.Text = "";
-                txtUserName.ForeColor = Color.Black; // Change text color to normal
+                txtUserName.ForeColor = Color.Black; 
             }
         }
     }

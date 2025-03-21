@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace DBS25P131
 {
-    public partial class RoomAllocationForm: Form
+    public partial class RoomAllocationForm : Form
     {
         public RoomAllocationForm()
         {
             InitializeComponent();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

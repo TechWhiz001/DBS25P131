@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(signUp));
-            sRole = new ComboBox();
-            sLabel4 = new Label();
             sPassword = new TextBox();
             sLabel3 = new Label();
             sUserName = new TextBox();
@@ -45,25 +43,6 @@
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // sRole
-            // 
-            sRole.FormattingEnabled = true;
-            sRole.Items.AddRange(new object[] { "Department Head", "Faculty Member", "Administrative Staff" });
-            sRole.Location = new Point(463, 449);
-            sRole.Name = "sRole";
-            sRole.Size = new Size(242, 25);
-            sRole.TabIndex = 18;
-            // 
-            // sLabel4
-            // 
-            sLabel4.BackColor = Color.Transparent;
-            sLabel4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            sLabel4.Location = new Point(463, 404);
-            sLabel4.Name = "sLabel4";
-            sLabel4.Size = new Size(100, 23);
-            sLabel4.TabIndex = 17;
-            sLabel4.Text = "Role";
             // 
             // sPassword
             // 
@@ -138,7 +117,7 @@
             signButton.BackColor = Color.FromArgb(19, 16, 16);
             signButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             signButton.ForeColor = Color.White;
-            signButton.Location = new Point(608, 507);
+            signButton.Location = new Point(608, 416);
             signButton.Name = "signButton";
             signButton.Size = new Size(97, 31);
             signButton.TabIndex = 25;
@@ -190,8 +169,6 @@
             Controls.Add(flowLayoutPanel1);
             Controls.Add(sEmail);
             Controls.Add(sLabel2);
-            Controls.Add(sRole);
-            Controls.Add(sLabel4);
             Controls.Add(sPassword);
             Controls.Add(sLabel3);
             Controls.Add(sUserName);
@@ -206,8 +183,6 @@
         }
 
         #endregion
-        private ComboBox sRole;
-        private Label sLabel4;
         private TextBox sPassword;
         private Label sLabel3;
         private TextBox sUserName;

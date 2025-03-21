@@ -74,18 +74,18 @@ namespace DBS25P131
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
-            LoadForm(new AssignCourse());
+            LoadForm(new AssignCourses());
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            LoadForm(new Projects());
+            LoadForm(new ProjectForm());
 
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            LoadForm(new Semester());
+            LoadForm(new semestersForm());
         }
     }
 }
