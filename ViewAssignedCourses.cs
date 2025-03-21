@@ -17,7 +17,31 @@ namespace DBS25P131
             InitializeComponent();
         }
 
+
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Contacthours_TextChanged(object sender, EventArgs e)
         {
 
         }
