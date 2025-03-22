@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace DBS25P131
 {
-    public partial class FullfillRequest: Form
+    public partial class FullfillRequest : Form
     {
         public FullfillRequest()
         {
             InitializeComponent();
+        }
+
+        private void FullfillRequest_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

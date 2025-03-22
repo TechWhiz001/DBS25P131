@@ -45,5 +45,10 @@ namespace DBS25P131
         {
 
         }
+
+        private void ViewAssignedCourses_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -36,6 +36,8 @@
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
+            button2 = new Button();
+            button6 = new Button();
             button5 = new Button();
             comboBox1 = new ComboBox();
             button1 = new Button();
@@ -48,8 +50,6 @@
             Request_date = new DataGridViewTextBoxColumn();
             supervision_hours = new DataGridViewTextBoxColumn();
             label1 = new Label();
-            button6 = new Button();
-            button2 = new Button();
             panel1.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -130,6 +130,30 @@
             label2.Size = new Size(105, 24);
             label2.TabIndex = 57;
             label2.Text = "Quantity";
+            // 
+            // button2
+            // 
+            button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            button2.BackColor = Color.FromArgb(19, 16, 16);
+            button2.ForeColor = Color.WhiteSmoke;
+            button2.Location = new Point(42, 499);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 32);
+            button2.TabIndex = 23;
+            button2.Text = "Go back";
+            button2.UseVisualStyleBackColor = false;
+            // 
+            // button6
+            // 
+            button6.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            button6.BackColor = Color.FromArgb(19, 16, 16);
+            button6.ForeColor = Color.White;
+            button6.Location = new Point(657, 488);
+            button6.Name = "button6";
+            button6.Size = new Size(75, 32);
+            button6.TabIndex = 42;
+            button6.Text = "Approve";
+            button6.UseVisualStyleBackColor = false;
             // 
             // button5
             // 
@@ -220,30 +244,6 @@
             label1.TabIndex = 41;
             label1.Text = "Faculty_Requests";
             // 
-            // button6
-            // 
-            button6.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            button6.BackColor = Color.FromArgb(19, 16, 16);
-            button6.ForeColor = Color.White;
-            button6.Location = new Point(657, 488);
-            button6.Name = "button6";
-            button6.Size = new Size(75, 32);
-            button6.TabIndex = 42;
-            button6.Text = "Approve";
-            button6.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            button2.BackColor = Color.FromArgb(19, 16, 16);
-            button2.ForeColor = Color.WhiteSmoke;
-            button2.Location = new Point(42, 499);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 32);
-            button2.TabIndex = 23;
-            button2.Text = "Go back";
-            button2.UseVisualStyleBackColor = false;
-            // 
             // FullfillRequest
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
@@ -258,6 +258,7 @@
             MinimumSize = new Size(762, 590);
             Name = "FullfillRequest";
             Text = "FullfillRequest";
+            Load += FullfillRequest_Load;
             panel1.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DBS25P131
 {
-    public partial class Form15 : Form
+    public partial class facultyProfilesForm : Form
     {
-        public Form15()
+        public facultyProfilesForm()
         {
             InitializeComponent();
         }
