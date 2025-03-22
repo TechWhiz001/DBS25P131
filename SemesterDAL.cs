@@ -39,7 +39,7 @@ namespace DBS25P131.DataAccessLayer
             return semesters;
         }
 
-        public bool InsertSemester(Semester semester)
+        public bool InsertSemester(string term, int y)
         {
             string query = "INSERT INTO semesters (term, year) VALUES (@term, @year)";
             try
@@ -48,8 +48,8 @@ namespace DBS25P131.DataAccessLayer
                 using (var command = new MySqlCommand(query, connection))
                 {
                     connection.Open();
-                    command.Parameters.AddWithValue("@term", semester.Term);
-                    command.Parameters.AddWithValue("@year", semester.Year);
+                    command.Parameters.AddWithValue("@term", term);
+                    command.Parameters.AddWithValue("@year", y);
 
                     return command.ExecuteNonQuery() > 0;
                 }
@@ -61,7 +61,7 @@ namespace DBS25P131.DataAccessLayer
             }
         }
 
-        public bool UpdateSemester(Semester semester)
+        public bool UpdateSemester(int id, string term,int year )
         {
             string query = "UPDATE semesters SET term = @term, year = @year WHERE semester_id = @semester_id";
 
@@ -71,9 +71,9 @@ namespace DBS25P131.DataAccessLayer
                 using (var command = new MySqlCommand(query, connection))
                 {
                     connection.Open();
-                    command.Parameters.AddWithValue("@term", semester.Term);
-                    command.Parameters.AddWithValue("@year", semester.Year);
-                    command.Parameters.AddWithValue("@semester_id", semester.SemesterId);
+                    command.Parameters.AddWithValue("@term", term);
+                    command.Parameters.AddWithValue("@year", year);
+                    command.Parameters.AddWithValue("@semester_id", id);
 
                     return command.ExecuteNonQuery() > 0;
                 }
@@ -105,7 +105,6 @@ namespace DBS25P131.DataAccessLayer
             }
         }
 
-        // Get semester ID by term and year
         public int GetSemesterId(string term, int year)
         {
             string query = "SELECT semester_id FROM semesters WHERE term = @term AND year = @year";

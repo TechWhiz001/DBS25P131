@@ -14,7 +14,7 @@ namespace DBS25P131.DataAccessLayer
 
             using (var connection = DatabaseHelper.Instance.GetConnection())
             {
-                connection.Open(); // Ensure connection is open
+                connection.Open(); 
                 using (var command = new MySqlCommand(query, connection))
                 using (var reader = command.ExecuteReader())
                 {
@@ -40,7 +40,7 @@ namespace DBS25P131.DataAccessLayer
         SELECT c.course_id, c.course_name, c.course_type
         FROM courses c
         LEFT JOIN faculty_courses fc ON c.course_id = fc.course_id
-        WHERE fc.course_id IS NULL"; // No filtering by research area
+        WHERE fc.course_id IS NULL"; 
 
             using (var connection = DatabaseHelper.Instance.GetConnection())
             using (var command = new MySqlCommand(query, connection))
@@ -108,7 +108,7 @@ namespace DBS25P131.DataAccessLayer
 
             using (var connection = DatabaseHelper.Instance.GetConnection())
             {
-                connection.Open(); // Ensure connection is open
+                connection.Open(); 
                 using (var command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@course_id", courseId);

@@ -29,7 +29,6 @@ namespace DBS25P131.DataAccessLayer
             }
         }
 
-        // Get All FacultyProjects (With Joins)
         public List<FacultyProject> GetAllFacultyProjects()
         {
             List<FacultyProject> facultyProjects = new List<FacultyProject>();
@@ -79,7 +78,7 @@ namespace DBS25P131.DataAccessLayer
         }
 
         // Update FacultyProject
-        public bool UpdateFacultyProject(int fpid,int fid,int pid,int sid,int shours)
+        public bool UpdateFacultyProject(int FacultyProjectId, int facultyId, int projectId, int semesterId, int reservedHours)
         {
             string query = "UPDATE faculty_projects SET faculty_id = @FacultyId, project_id = @ProjectId, " +
                            "semester_id = @SemesterId, supervision_hours = @SupervisionHours " +
@@ -88,18 +87,17 @@ namespace DBS25P131.DataAccessLayer
             using (var connection = DatabaseHelper.Instance.GetConnection())
             using (var command = new MySqlCommand(query, connection))
             { 
-                command.Parameters.AddWithValue("@FacultyProjectId", fpid);
-                command.Parameters.AddWithValue("@FacultyId", fid);
-                command.Parameters.AddWithValue("@ProjectId", pid);
-                command.Parameters.AddWithValue("@SemesterId", sid);
-                command.Parameters.AddWithValue("@SupervisionHours", shours);
+                command.Parameters.AddWithValue("@FacultyProjectId", FacultyProjectId);
+                command.Parameters.AddWithValue("@FacultyId", facultyId);
+                command.Parameters.AddWithValue("@ProjectId", projectId);
+                command.Parameters.AddWithValue("@SemesterId", semesterId);
+                command.Parameters.AddWithValue("@SupervisionHours", reservedHours);
 
                 connection.Open();
                 return command.ExecuteNonQuery() > 0;
             }
         }
 
-        // Delete FacultyProject
         public bool DeleteFacultyProject(int facultyProjectId)
         {
             string query = "DELETE FROM faculty_projects WHERE faculty_project_id = @FacultyProjectId";
@@ -114,7 +112,7 @@ namespace DBS25P131.DataAccessLayer
         }
         
 
-        public bool InsertFacultyProject(int f,int s,int p,int h)
+        public bool InsertFacultyProject( int facultyId, int projectId, int semesterId, int reservedHours)
         {
             string query = "INSERT INTO faculty_projects (faculty_id, project_id, semester_id, supervision_hours) " +
                            "VALUES (@FacultyId, @ProjectId, @SemesterId, @SupervisionHours)";
@@ -122,10 +120,10 @@ namespace DBS25P131.DataAccessLayer
             using (var connection = DatabaseHelper.Instance.GetConnection())
             using (var command = new MySqlCommand(query, connection))
             {
-                command.Parameters.AddWithValue("@FacultyId", f);
-                command.Parameters.AddWithValue("@ProjectId", p);
-                command.Parameters.AddWithValue("@SemesterId", s);
-                command.Parameters.AddWithValue("@SupervisionHours", h);
+                command.Parameters.AddWithValue("@FacultyId", facultyId);
+                command.Parameters.AddWithValue("@ProjectId", projectId);
+                command.Parameters.AddWithValue("@SemesterId", semesterId);
+                command.Parameters.AddWithValue("@SupervisionHours", reservedHours);
 
                 connection.Open();
                 return command.ExecuteNonQuery() > 0;

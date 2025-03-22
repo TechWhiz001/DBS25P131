@@ -42,7 +42,7 @@ namespace DBS25P131.DataAccessLayer
             string query = "SELECT p.project_id, p.title " +
                            "FROM Projects p " +
                            "LEFT JOIN faculty_projects fp ON p.project_id = fp.project_id " +
-                           "WHERE fp.project_id IS NULL"; // Select projects that have no faculty assigned
+                           "WHERE fp.project_id IS NULL"; 
 
             using (var connection = DatabaseHelper.Instance.GetConnection())
             using (var command = new MySqlCommand(query, connection))
@@ -63,31 +63,37 @@ namespace DBS25P131.DataAccessLayer
             }
             return unassignedProjects;
         }
-        public bool InsertProject(Project project)
+        public bool InsertProject(string title,string des)
         {
             string query = "INSERT INTO projects (title, description) VALUES (@title, @description)";
 
             using (var connection = DatabaseHelper.Instance.GetConnection())
-            using (var command = new MySqlCommand(query, connection))
             {
-                command.Parameters.AddWithValue("@title", project.Title);
-                command.Parameters.AddWithValue("@description", project.Description ?? (object)DBNull.Value);
-                return command.ExecuteNonQuery() > 0;
+                connection.Open();
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@title", title);
+                    command.Parameters.AddWithValue("@description", des);
+                    return command.ExecuteNonQuery() > 0;
+                }
             }
         }
 
-        public bool UpdateProject(Project project)
+        public bool UpdateProject(int id ,string title, string des)
         {
             string query = "UPDATE projects SET title = @title, description = @description WHERE project_id = @project_id";
 
             using (var connection = DatabaseHelper.Instance.GetConnection())
-            using (var command = new MySqlCommand(query, connection))
             {
-                command.Parameters.AddWithValue("@title", project.Title);
-                command.Parameters.AddWithValue("@description", project.Description ?? (object)DBNull.Value);
-                command.Parameters.AddWithValue("@project_id", project.ProjectId);
+                connection.Open();
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@title", title);
+                    command.Parameters.AddWithValue("@description",des);
+                    command.Parameters.AddWithValue("@project_id", id);
 
-                return command.ExecuteNonQuery() > 0;
+                    return command.ExecuteNonQuery() > 0;
+                }
             }
         }
 
@@ -96,10 +102,13 @@ namespace DBS25P131.DataAccessLayer
             string query = "DELETE FROM projects WHERE project_id = @project_id";
 
             using (var connection = DatabaseHelper.Instance.GetConnection())
-            using (var command = new MySqlCommand(query, connection))
             {
-                command.Parameters.AddWithValue("@project_id", projectId);
-                return command.ExecuteNonQuery() > 0;
+                connection.Open();
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@project_id", projectId);
+                    return command.ExecuteNonQuery() > 0;
+                }
             }
         }
     }

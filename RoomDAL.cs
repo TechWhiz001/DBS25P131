@@ -17,50 +17,91 @@ namespace DBS25P131.DataAccessLayer
             string query = "SELECT room_id, room_name, room_type, capacity FROM rooms";
 
             using (var connection = DatabaseHelper.Instance.GetConnection())
-            using (var command = new MySqlCommand(query, connection))
-            using (var reader = command.ExecuteReader())
             {
-                while (reader.Read())
+                connection.Open();
+                using (var command = new MySqlCommand(query, connection))
+                using (var reader = command.ExecuteReader())
                 {
-                    rooms.Add(new Room
+                    while (reader.Read())
                     {
-                        RoomId = Convert.ToInt32(reader["room_id"]),
-                        RoomName = reader["room_name"].ToString(),
-                        RoomType = reader["room_type"].ToString(),
-                        Capacity = Convert.ToInt32(reader["capacity"])
-                    });
-                }
-            }
-            return rooms;
-        }
+                        rooms.Add(new Room
+                        {
+                            RoomId = Convert.ToInt32(reader["room_id"]),
+                            RoomName = reader["room_name"].ToString(),
+                            RoomType = reader["room_type"].ToString(),
+                            Capacity = Convert.ToInt32(reader["capacity"])
+                        });
+                    }
 
-        public bool InsertRoom(Room room)
+                }
+                return rooms;
+            }
+        }
+        public List<Room> GetUnassignedRooms()
+        {
+            List<Room> unassignedRooms = new List<Room>();
+            string query = "SELECT R.room_id, R.room_name " +
+                           "FROM Rooms R " +
+                           "LEFT JOIN faculty_room_allocations fr ON R.room_id = fr.allocation_id " +
+                           "WHERE fr.room_id IS NULL";
+
+            using (var connection = DatabaseHelper.Instance.GetConnection())
+            {
+                connection.Open();
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    connection.Open();
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Room room = new Room
+                            {
+                                RoomId = reader.GetInt32(0),
+                                RoomName = reader.GetString(1)
+                            };
+                            unassignedRooms.Add(room);
+                        }
+                    }
+
+
+                }
+                return unassignedRooms;
+            }
+        }
+        public bool InsertRoom(string rname, string rtype, int capacity)
         {
             string query = "INSERT INTO rooms (room_name, room_type, capacity) VALUES (@room_name, @room_type, @capacity)";
 
             using (var connection = DatabaseHelper.Instance.GetConnection())
-            using (var command = new MySqlCommand(query, connection))
             {
-                command.Parameters.AddWithValue("@room_name", room.RoomName);
-                command.Parameters.AddWithValue("@room_type", room.RoomType);
-                command.Parameters.AddWithValue("@capacity", room.Capacity);
-                return command.ExecuteNonQuery() > 0;
+                connection.Open();
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@room_name", rname);
+                    command.Parameters.AddWithValue("@room_type", rtype);
+                    command.Parameters.AddWithValue("@capacity", capacity);
+                    return command.ExecuteNonQuery() > 0;
+                }
             }
         }
 
-        public bool UpdateRoom(Room room)
+        public bool UpdateRoom(int rid, string rname, string rtype, int capacity)
         {
             string query = "UPDATE rooms SET room_name = @room_name, room_type = @room_type, capacity = @capacity WHERE room_id = @room_id";
 
             using (var connection = DatabaseHelper.Instance.GetConnection())
-            using (var command = new MySqlCommand(query, connection))
             {
-                command.Parameters.AddWithValue("@room_name", room.RoomName);
-                command.Parameters.AddWithValue("@room_type", room.RoomType);
-                command.Parameters.AddWithValue("@capacity", room.Capacity);
-                command.Parameters.AddWithValue("@room_id", room.RoomId);
+                connection.Open();
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@room_name", rname);
+                    command.Parameters.AddWithValue("@room_type", rtype);
+                    command.Parameters.AddWithValue("@capacity", capacity);
+                    command.Parameters.AddWithValue("@room_id", rid);
 
-                return command.ExecuteNonQuery() > 0;
+                    return command.ExecuteNonQuery() > 0;
+                }
             }
         }
 
@@ -69,10 +110,13 @@ namespace DBS25P131.DataAccessLayer
             string query = "DELETE FROM rooms WHERE room_id = @room_id";
 
             using (var connection = DatabaseHelper.Instance.GetConnection())
-            using (var command = new MySqlCommand(query, connection))
             {
-                command.Parameters.AddWithValue("@room_id", roomId);
-                return command.ExecuteNonQuery() > 0;
+                connection.Open();
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@room_id", roomId);
+                    return command.ExecuteNonQuery() > 0;
+                }
             }
         }
     }

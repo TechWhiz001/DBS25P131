@@ -1,112 +1,162 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
-//using System.Xml.Linq;
-//using DBS25P131.Models;
+﻿using System;
+using System.Collections.Generic;
+using MySql.Data.MySqlClient;
+using DBS25P131.Models;
 
-//namespace DBS25P131.DataAccessLayer
-//{
-//    public class UserDAL
-//    {
-//        // Method to Insert a New User
-//        public bool InsertUser(User user)
-//        {
-//            string query = "INSERT INTO users (username, email, password_hash, role_id) VALUES (@username, @email, @password_hash, @role_id)";
+namespace DBS25P131.DataAccessLayer
+{
+    public class UserDAL
+    {
+   
+        public static List<User> users = new List<User>();
 
-//            using (var connection = DatabaseHelper.Instance.GetConnection())
-//            using (var command = new MySqlCommand(query, connection))
-//            {
-//                command.Parameters.AddWithValue("@username", user.Username);
-//                command.Parameters.AddWithValue("@email", user.Email);
-//                command.Parameters.AddWithValue("@password_hash", user.PasswordHash);
-//                command.Parameters.AddWithValue("@role_id", user.RoleId.HasValue ? (object)user.RoleId.Value : DBNull.Value);
+        public bool InsertUser(User user)
+        {
+            string query = "INSERT INTO users (username, email, password_hash, role_id) " +
+                           "VALUES (@Username, @Email, @PasswordHash, @RoleId)";
 
-//                return command.ExecuteNonQuery() > 0;
-//            }
-//        }
+            using (var connection = DatabaseHelper.Instance.GetConnection())
+            using (var command = new MySqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@Username", user.Username);
+                command.Parameters.AddWithValue("@Email", user.Email);
+                command.Parameters.AddWithValue("@PasswordHash", user.PasswordHash);
+                command.Parameters.AddWithValue("@RoleId", user.Role.LookupId);
 
-//        // Method to Retrieve All Users
-//        public List<User> GetAllUsers()
-//        {
-//            List<User> users = new List<User>();
-//            string query = "SELECT * FROM users";
+                connection.Open();
+                return command.ExecuteNonQuery() > 0;
+            }
+        }
 
-//            using (var connection = DatabaseHelper.Instance.GetConnection())
-//            using (var command = new MySqlCommand(query, connection))
-//            using (var reader = command.ExecuteReader())
-//            {
-//                while (reader.Read())
-//                {
-//                    users.Add(new User(
-//                        reader.GetInt32(reader.GetOrdinal("user_id")),
-//                        reader.GetString(reader.GetOrdinal("username")),
-//                        reader.GetString(reader.GetOrdinal("email")),
-//                        reader.GetString(reader.GetOrdinal("password_hash")),
-//                        reader.IsDBNull(reader.GetOrdinal("role_id")) ? (int?)null : reader.GetInt32(reader.GetOrdinal("role_id"))
-//                    ));
-//                }
-//            }
-//            return users;
-//        }
+        // Retrieve All Users
+        public void GetAllUsers()
+        {
+            string query = "SELECT u.user_id, u.username, u.email, u.password_hash, " +
+                           "l.lookup_id, l.category, l.value " +
+                           "FROM users u " +
+                           "LEFT JOIN lookup l ON u.role_id = l.lookup_id";
 
-//        // Method to Retrieve a User by ID
-//        public User GetUserById(int id)
-//        {
-//            string query = "SELECT * FROM users WHERE user_id = @id";
+            using (var connection = DatabaseHelper.Instance.GetConnection())
+            using (var command = new MySqlCommand(query, connection))
+            {
+                connection.Open();
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Lookup role = reader.IsDBNull(4) ? null : new Lookup
+                        {
+                            LookupId = reader.GetInt32(4),
+                            Category = reader.GetString(5),
+                            Value = reader.GetString(6)
+                        };
 
-//            using (var connection = DatabaseHelper.Instance.GetConnection())
-//            using (var command = new MySqlCommand(query, connection))
-//            {
-//                command.Parameters.AddWithValue("@id", id);
+                        User user = new User
+                        {
+                            UserId = reader.GetInt32(0),
+                            Username = reader.GetString(1),
+                            Email = reader.GetString(2),
+                            PasswordHash = reader.GetString(3),
+                            Role = role
+                        };
 
-//                using (var reader = command.ExecuteReader())
-//                {
-//                    if (reader.Read())
-//                    {
-//                        return new User(
-//                            reader.GetInt32(reader.GetOrdinal("user_id")),
-//                            reader.GetString(reader.GetOrdinal("username")),
-//                            reader.GetString(reader.GetOrdinal("email")),
-//                            reader.GetString(reader.GetOrdinal("password_hash")),
-//                            reader.IsDBNull(reader.GetOrdinal("role_id")) ? (int?)null : reader.GetInt32(reader.GetOrdinal("role_id"))
-//                        );
-//                    }
-//                }
-//            }
-//            return null; // Return null if not found
-//        }
+                        users.Add(user);
+                    }
+                }
+            }
+        }
 
-//        // Method to Update an Existing User
-//        public bool UpdateUser(User user)
-//        {
-//            string query = "UPDATE users SET username = @username, email = @email, password_hash = @password_hash, role_id = @role_id WHERE user_id = @user_id";
+        // Retrieve a User by ID
+        public User GetUserById(int userId)
+        {
+            string query = "SELECT u.user_id, u.username, u.email, u.password_hash, " +
+                           "l.lookup_id, l.category, l.value " +
+                           "FROM users u " +
+                           "LEFT JOIN lookup l ON u.role_id = l.lookup_id " +
+                           "WHERE u.user_id = @UserId";
 
-//            using (var connection = DatabaseHelper.Instance.GetConnection())
-//            using (var command = new MySqlCommand(query, connection))
-//            {
-//                command.Parameters.AddWithValue("@username", user.Username);
-//                command.Parameters.AddWithValue("@email", user.Email);
-//                command.Parameters.AddWithValue("@password_hash", user.PasswordHash);
-//                command.Parameters.AddWithValue("@role_id", user.RoleId.HasValue ? (object)user.RoleId.Value : DBNull.Value);
-//                command.Parameters.AddWithValue("@user_id", user.UserId);
+            using (var connection = DatabaseHelper.Instance.GetConnection())
+            using (var command = new MySqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@UserId", userId);
+                connection.Open();
 
-//                return command.ExecuteNonQuery() > 0;
-//            }
-//        }
+                using (var reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        Lookup role = reader.IsDBNull(4) ? null : new Lookup
+                        {
+                            LookupId = reader.GetInt32(4),
+                            Category = reader.GetString(5),
+                            Value = reader.GetString(6)
+                        };
 
-//        // Method to Delete a User by ID
-//        public bool DeleteUser(int id)
-//        {
-//            string query = "DELETE FROM users WHERE user_id = @id";
+                        return new User
+                        {
+                            UserId = reader.GetInt32(0),
+                            Username = reader.GetString(1),
+                            Email = reader.GetString(2),
+                            PasswordHash = reader.GetString(3),
+                            Role = role
+                        };
+                    }
+                }
+            }
+            return null;
+        }
 
-//            using (var connection = DatabaseHelper.Instance.GetConnection())
-//            using (var command = new MySqlCommand(query, connection))
-//            {
-//                command.Parameters.AddWithValue("@id", id);
-//                return command.ExecuteNonQuery() > 0;
-//            }
-//        }
-//    }
-//}
+        // Update User
+        public bool UpdateUser(int userId, string username, string email, string passwordHash, int? roleId)
+        {
+            string query = "UPDATE users SET username = @Username, email = @Email, password_hash = @PasswordHash, " +
+                           "role_id = @RoleId WHERE user_id = @UserId";
+
+            using (var connection = DatabaseHelper.Instance.GetConnection())
+            using (var command = new MySqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@UserId", userId);
+                command.Parameters.AddWithValue("@Username", username);
+                command.Parameters.AddWithValue("@Email", email);
+                command.Parameters.AddWithValue("@PasswordHash", passwordHash);
+                command.Parameters.AddWithValue("@RoleId", roleId.HasValue ? (object)roleId.Value : DBNull.Value);
+
+                connection.Open();
+                return command.ExecuteNonQuery() > 0;
+            }
+        }
+
+        // Delete User
+        public bool DeleteUser(int userId)
+        {
+            string query = "DELETE FROM users WHERE user_id = @UserId";
+
+            using (var connection = DatabaseHelper.Instance.GetConnection())
+            using (var command = new MySqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@UserId", userId);
+                connection.Open();
+                return command.ExecuteNonQuery() > 0;
+            }
+        }
+
+        // Insert User with Primitive Parameters
+        public bool Insertuser(string username, string email, string passwordHash, int? roleId)
+        {
+            string query = "INSERT INTO users (username, email, password_hash, role_id) " +
+                           "VALUES (@Username, @Email, @PasswordHash, @RoleId)";
+
+            using (var connection = DatabaseHelper.Instance.GetConnection())
+            using (var command = new MySqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@Username", username);
+                command.Parameters.AddWithValue("@Email", email);
+                command.Parameters.AddWithValue("@PasswordHash", passwordHash);
+                command.Parameters.AddWithValue("@RoleId", roleId.HasValue ? (object)roleId.Value : DBNull.Value);
+
+                connection.Open();
+                return command.ExecuteNonQuery() > 0;
+            }
+        }
+    }
+}
