@@ -19,22 +19,16 @@ namespace DBS25P131.BusinessLayer
             return semesterDAL.GetAllSemesters();
         }
 
-        public bool AddSemester(Semester semester)
+        public bool AddSemester( string term, int year)
         {
-            if (semester == null || string.IsNullOrWhiteSpace(semester.Term) || semester.Year <= 0)
-            {
-                throw new ArgumentException("Invalid semester data.");
-            }
-            return semesterDAL.InsertSemester(semester);
+            
+            return semesterDAL.InsertSemester( term,year);
         }
 
-        public bool UpdateSemester(Semester semester)
+        public bool UpdateSemester(int id, string term,int y)
         {
-            if (semester == null || semester.SemesterId <= 0 || string.IsNullOrWhiteSpace(semester.Term) || semester.Year <= 0)
-            {
-                throw new ArgumentException("Invalid semester data.");
-            }
-            return semesterDAL.UpdateSemester(semester);
+            
+            return semesterDAL.UpdateSemester(id, term,y);
         }
 
         public bool DeleteSemester(int semesterId)
@@ -46,7 +40,6 @@ namespace DBS25P131.BusinessLayer
             return semesterDAL.DeleteSemester(semesterId);
         }
 
-        // NEW FUNCTION: Get Semester ID by Term and Year
         public int GetSemesterIdByTermAndYear(string term, int year)
         {
             if (string.IsNullOrWhiteSpace(term) || year <= 0)

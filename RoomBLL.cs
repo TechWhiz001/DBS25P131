@@ -21,25 +21,20 @@ namespace DBS25P131.BusinessLayer
         {
             return roomDAL.GetAllRooms();
         }
-
-        public bool AddRoom(Room room)
+        public List<Room> GetUnassignedRooms()
         {
-            if (room == null || string.IsNullOrWhiteSpace(room.RoomName) ||
-                string.IsNullOrWhiteSpace(room.RoomType) || room.Capacity <= 0)
-            {
-                throw new ArgumentException("Invalid room data.");
-            }
-            return roomDAL.InsertRoom(room);
+            return roomDAL.GetUnassignedRooms();
+        }
+        public bool AddRoom(string rname, string rtype, int capacity)
+        {
+            
+            return roomDAL.InsertRoom(rname,rtype,capacity);
         }
 
-        public bool UpdateRoom(Room room)
+        public bool UpdateRoom(int rid, string rname, string rtype, int capacity)
         {
-            if (room == null || room.RoomId <= 0 || string.IsNullOrWhiteSpace(room.RoomName) ||
-                string.IsNullOrWhiteSpace(room.RoomType) || room.Capacity <= 0)
-            {
-                throw new ArgumentException("Invalid room data.");
-            }
-            return roomDAL.UpdateRoom(room);
+            
+            return roomDAL.UpdateRoom(rid,rname,rtype,capacity);
         }
 
         public bool DeleteRoom(int roomId)

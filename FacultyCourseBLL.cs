@@ -52,7 +52,6 @@ namespace DBS25P131.BusinessLayer
             return _facultyCourseDAL.DeleteFacultyCourse(facultyCourseId);
         }
 
-        // NEW FUNCTION: Assign Course to Faculty using courseId, facultyId, and semesterId
         public bool AssignCourseToFaculty(int courseId, int facultyId, int semesterId)
         {
             if (courseId <= 0 || facultyId <= 0 || semesterId <= 0)

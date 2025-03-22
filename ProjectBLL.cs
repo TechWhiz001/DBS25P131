@@ -24,26 +24,18 @@ namespace DBS25P131.BusinessLayer
             return projectDAL.GetAllProjects();
         }
 
-        public bool AddProject(Project project)
+        public bool AddProject(string title,string description)
         {
-            if (project == null || string.IsNullOrWhiteSpace(project.Title))
-            {
-                throw new ArgumentException("Invalid project data.");
-            }
-            return projectDAL.InsertProject(project);
+            return projectDAL.InsertProject(title,description);
         }
-        // Get all unassigned projects
         public List<Project> GetUnassignedProjects()
         {
             return projectDAL.GetUnassignedProjects();
         }
-        public bool UpdateProject(Project project)
+        public bool UpdateProject(int id, string title, string des)
         {
-            if (project == null || project.ProjectId <= 0 || string.IsNullOrWhiteSpace(project.Title))
-            {
-                throw new ArgumentException("Invalid project data.");
-            }
-            return projectDAL.UpdateProject(project);
+            
+            return projectDAL.UpdateProject(id,title,des);
         }
 
         public bool DeleteProject(int projectId)

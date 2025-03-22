@@ -1,84 +1,78 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Text.RegularExpressions;
-//using System.Threading.Tasks;
-//using DBS25P131.DataAccessLayer;
-//using DBS25P131.Models;
+﻿using System;
+using System.Collections.Generic;
+using DBS25P131.DataAccessLayer;
+using DBS25P131.Models;
 
+namespace DBS25P131.BusinessLogicLayer
+{
+    public class UserBLL
+    {
+        private readonly UserDAL _userDal;
 
-//namespace DBS25P131.Business_Logic_Layer
-//{
-//    public class UserBLL
-//    {
-//        private readonly UserDAL userDAL;
+        public UserBLL()
+        {
+            _userDal = new UserDAL();
+        }
 
-//        public UserBLL()
-//        {
-//            userDAL = new UserDAL();
-//        }
+        // Insert User (Object-based)
+        public bool InsertUser(User user)
+        {
+            if (user == null || string.IsNullOrEmpty(user.Username) || string.IsNullOrEmpty(user.Email) || string.IsNullOrEmpty(user.PasswordHash))
+            {
+                throw new ArgumentException("Invalid user data provided.");
+            }
 
-//        // Method to validate user data
-//        private void ValidateUser(User user, bool checkId = false)
-//        {
-//            if (user == null)
-//                throw new ArgumentException("User cannot be null.");
+            return _userDal.InsertUser(user);
+        }
 
-//            if (checkId && user.UserId <= 0)
-//                throw new ArgumentException("Invalid user ID.");
+        // Insert User (Primitive parameters)
+        public bool Insertuser(string username, string email, string passwordHash, int? roleId)
+        {
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(passwordHash))
+            {
+                throw new ArgumentException("Invalid user data provided.");
+            }
 
-//            if (string.IsNullOrWhiteSpace(user.Username) || user.Username.Length < 3 || user.Username.Length > 50)
-//                throw new ArgumentException("Username must be between 3 and 50 characters.");
+            return _userDal.Insertuser(username, email, passwordHash, roleId);
+        }
 
-//            if (!IsValidEmail(user.Email))
-//                throw new ArgumentException("Invalid email format.");
+        // Retrieve all users
+        public List<User> GetAllUsers()
+        {
+            return _userDal.GetAllUsers();
+        }
 
-//            if (string.IsNullOrWhiteSpace(user.PasswordHash) || user.PasswordHash.Length < 8)
-//                throw new ArgumentException("Password must be at least 8 characters long.");
+        // Retrieve user by ID
+        public User GetUserById(int userId)
+        {
+            if (userId <= 0)
+            {
+                throw new ArgumentException("Invalid user ID.");
+            }
 
-//            if (user.RoleId.HasValue && user.RoleId.Value <= 0)
-//                throw new ArgumentException("Invalid role ID.");
-//        }
+            return _userDal.GetUserById(userId);
+        }
 
-//        // Email validation using regex
-//        private bool IsValidEmail(string email)
-//        {
-//            string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
-//            return Regex.IsMatch(email, emailPattern);
-//        }
+        // Update User
+        public bool UpdateUser(int userId, string username, string email, string passwordHash, int? roleId)
+        {
+            if (userId <= 0 || string.IsNullOrEmpty(username) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(passwordHash))
+            {
+                throw new ArgumentException("Invalid user data provided.");
+            }
 
-//        public bool AddUser(User user)
-//        {
-//            ValidateUser(user);
-//            return userDAL.InsertUser(user);
-//        }
+            return _userDal.UpdateUser(userId, username, email, passwordHash, roleId);
+        }
 
-//        public List<User> GetAllUsers()
-//        {
-//            return UserDAL.GetAllUsers();
-//        }
+        // Delete User
+        public bool DeleteUser(int userId)
+        {
+            if (userId <= 0)
+            {
+                throw new ArgumentException("Invalid user ID.");
+            }
 
-//        public User GetUserById(int userId)
-//        {
-//            if (userId <= 0)
-//                throw new ArgumentException("Invalid user ID.");
-
-//            return userDAL.GetUserById(userId);
-//        }
-
-//        public bool UpdateUser(User user)
-//        {
-//            ValidateUser(user, checkId: true);
-//            return userDAL.UpdateUser(user);
-//        }
-
-//        public bool DeleteUser(int userId)
-//        {
-//            if (userId <= 0)
-//                throw new ArgumentException("Invalid user ID.");
-
-//            return userDAL.DeleteUser(userId);
-//        }
-//    }
-//}
+            return _userDal.DeleteUser(userId);
+        }
+    }
+}

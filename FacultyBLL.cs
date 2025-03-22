@@ -7,49 +7,31 @@ namespace DBS25P131.BusinessLayer
 {
     public class FacultyBLL
     {
-        private readonly FacultyDAL _facultyDal;
+        private readonly FacultyDAL facultyDal;
 
         public FacultyBLL()
         {
-            _facultyDal = new FacultyDAL();
+            facultyDal = new FacultyDAL();
         }
 
         public List<Faculty> GetAllFaculties()
         {
-            return _facultyDal.GetAllFaculties();
+            return facultyDal.GetAllFaculties();
         }
 
-        public bool AddFaculty(Faculty faculty)
+        public bool InsertFaculty(string name, string email, int designationId, string contact, string researchArea, int totalHours,int user_id)
         {
-            if (string.IsNullOrWhiteSpace(faculty.Name))
-                throw new ArgumentException("Faculty name is required.");
-
-            if (string.IsNullOrWhiteSpace(faculty.Email))
-                throw new ArgumentException("Faculty email is required.");
-
-            if (!faculty.Email.Contains("@"))
-                throw new ArgumentException("Invalid email format.");
-
-            return _facultyDal.InsertFaculty(faculty);
+            return facultyDal.InsertFaculty(name, email, designationId, contact, researchArea, totalHours,user_id);
         }
 
-        public bool UpdateFaculty(Faculty faculty)
+        public bool UpdateFaculty(int id ,string name, string email, int designationId, string contact, string researchArea, int totalHours, int user_id)
         {
-            if (faculty.FacultyId <= 0)
-                throw new ArgumentException("Invalid Faculty ID.");
-
-            if (string.IsNullOrWhiteSpace(faculty.Name))
-                throw new ArgumentException("Faculty name is required.");
-
-            return _facultyDal.UpdateFaculty(faculty);
+            return facultyDal.UpdateFaculty(id, name, email, designationId, contact, researchArea, totalHours, user_id);
         }
 
         public bool DeleteFaculty(int facultyId)
         {
-            if (facultyId <= 0)
-                throw new ArgumentException("Invalid Faculty ID.");
-
-            return _facultyDal.DeleteFaculty(facultyId);
+            return facultyDal.DeleteFaculty(facultyId);
         }
     }
 }
