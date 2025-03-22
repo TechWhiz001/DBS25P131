@@ -14,7 +14,6 @@ namespace DBS25P131.Models
         public Semester Semester { get; set; }
         public int SupervisionHours { get; set; }
 
-        // Constructor to initialize objects
         public FacultyProject(int facultyProjectId, Faculty faculty, Project project, Semester semester, int supervisionHours)
         {
             FacultyProjectId = facultyProjectId;
@@ -24,7 +23,6 @@ namespace DBS25P131.Models
             SupervisionHours = supervisionHours;
         }
 
-        // Parameterless constructor
         public FacultyProject()
         {
             Faculty = new Faculty();

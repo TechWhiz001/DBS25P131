@@ -10,7 +10,7 @@ namespace DBS25P131.Models
     {
         public int CourseId { get; set; }
         public string CourseName { get; set; }
-        public string CourseType { get; set; }  // Enum ('Theory', 'Lab')
+        public string CourseType { get; set; }  
         public int CreditHours { get; set; }
         public int ContactHours { get; set; }
 

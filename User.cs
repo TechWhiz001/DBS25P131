@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DBS25P131.Models
+﻿namespace DBS25P131.Models
 {
     public class User
     {
@@ -12,7 +6,7 @@ namespace DBS25P131.Models
         public string Username { get; set; }
         public string Email { get; set; }
         public string PasswordHash { get; set; }
-        public Lookup Role { get; set; }  
+        public Lookup Role { get; set; } 
 
         public User() { }
 
@@ -25,5 +19,4 @@ namespace DBS25P131.Models
             Role = role;
         }
     }
-
 }
