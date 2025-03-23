@@ -1,4 +1,10 @@
-﻿namespace DBS25P131.Models
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DBS25P131.Models
 {
     public class User
     {
