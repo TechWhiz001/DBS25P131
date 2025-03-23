@@ -50,7 +50,6 @@ namespace DBS25P131.DataAccessLayer
                 connection.Open();
                 using (var command = new MySqlCommand(query, connection))
                 {
-                    connection.Open();
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())

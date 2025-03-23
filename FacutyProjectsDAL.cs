@@ -13,7 +13,7 @@ namespace DBS25P131.DataAccessLayer
         // Insert FacultyProject
         public bool InsertFacultyProject(FacultyProject facultyProject)
         {
-            string query = "INSERT INTO FacultyProject (faculty_id, project_id, semester_id, supervision_hours) " +
+            string query = "INSERT INTO faculty_projects (faculty_id, project_id, semester_id, supervision_hours) " +
                            "VALUES (@FacultyId, @ProjectId, @SemesterId, @SupervisionHours)";
 
             using (var connection = DatabaseHelper.Instance.GetConnection())
@@ -36,8 +36,8 @@ namespace DBS25P131.DataAccessLayer
                            "s.semester_id, s.term, s.year, fp.supervision_hours " +
                            "FROM faculty_projects fp " +
                            "JOIN faculty f ON fp.faculty_id = f.faculty_id " +
-                           "JOIN Projects p ON fp.project_id = p.project_id " +
-                           "JOIN Semesters s ON fp.semester_id = s.semester_id";
+                           "JOIN projects p ON fp.project_id = p.project_id " +
+                           "JOIN semesters s ON fp.semester_id = s.semester_id";
 
             using (var connection = DatabaseHelper.Instance.GetConnection())
             using (var command = new MySqlCommand(query, connection))
@@ -129,6 +129,26 @@ namespace DBS25P131.DataAccessLayer
                 return command.ExecuteNonQuery() > 0;
             }
         }
+        public bool ExistsAssignment(int facultyId, int projectId, int semesterId)
+        {
+            string query = @"SELECT COUNT(*) FROM faculty_projects
+                     WHERE faculty_id = @FacultyId 
+                       AND project_id = @ProjectId 
+                       AND semester_id = @SemesterId";
+
+            using (var connection = DatabaseHelper.Instance.GetConnection())
+            using (var command = new MySqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@FacultyId", facultyId);
+                command.Parameters.AddWithValue("@ProjectId", projectId);
+                command.Parameters.AddWithValue("@SemesterId", semesterId);
+
+                connection.Open();
+                int count = Convert.ToInt32(command.ExecuteScalar());
+                return count > 0;
+            }
+        }
+
     }
 
 }

@@ -57,5 +57,25 @@ namespace DBS25P131.DataAccessLayer
                 return command.ExecuteNonQuery() > 0;
             }
         }
+        public int GetItemIdByName(string itemName)
+        {
+            int itemId = -1; // Default value if not found
+            string query = "SELECT lookup_id FROM lookup WHERE value = @itemName LIMIT 1";
+
+            using (var connection = DatabaseHelper.Instance.GetConnection())
+            using (var command = new MySqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@itemName", itemName);
+                using (var reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        itemId = Convert.ToInt32(reader["lookup_id"]);
+                    }
+                }
+            }
+            return itemId;
+        }
     }
+
 }

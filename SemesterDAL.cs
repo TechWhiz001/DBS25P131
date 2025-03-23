@@ -61,7 +61,7 @@ namespace DBS25P131.DataAccessLayer
             }
         }
 
-        public bool UpdateSemester(int id, string term,int year )
+        public bool UpdateSemester(int id, string term, int year)
         {
             string query = "UPDATE semesters SET term = @term, year = @year WHERE semester_id = @semester_id";
 
@@ -115,15 +115,17 @@ namespace DBS25P131.DataAccessLayer
                 {
                     if (connection == null)
                         throw new Exception("Database connection is null. Check your database connection settings.");
-
                     connection.Open();
                     using (var command = new MySqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@term", term);
                         command.Parameters.AddWithValue("@year", year);
-
                         object result = command.ExecuteScalar();
-                        return result != null ? Convert.ToInt32(result) : -1;
+                        if (result == null || result == DBNull.Value)
+                            return -1;
+                        else
+                            return Convert.ToInt32(result);
+
                     }
                 }
             }
@@ -135,3 +137,4 @@ namespace DBS25P131.DataAccessLayer
         }
     }
 }
+

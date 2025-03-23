@@ -7,9 +7,7 @@ namespace DBS25P131.DataAccessLayer
 {
     public class UserDAL
     {
-   
-        public static List<User> users = new List<User>();
-
+        // Insert User
         public bool InsertUser(User user)
         {
             string query = "INSERT INTO users (username, email, password_hash, role_id) " +
@@ -29,8 +27,9 @@ namespace DBS25P131.DataAccessLayer
         }
 
         // Retrieve All Users
-        public void GetAllUsers()
+        public List<User> GetAllUsers()
         {
+            List<User> users = new List<User>();
             string query = "SELECT u.user_id, u.username, u.email, u.password_hash, " +
                            "l.lookup_id, l.category, l.value " +
                            "FROM users u " +
@@ -64,6 +63,7 @@ namespace DBS25P131.DataAccessLayer
                     }
                 }
             }
+            return users;
         }
 
         // Retrieve a User by ID

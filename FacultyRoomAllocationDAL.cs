@@ -22,7 +22,7 @@ namespace DBS25P131.DataAccessLayer
                 using (var command = new MySqlCommand(checkQuery, connection))
                 {
                     command.Parameters.AddWithValue("@semesterId", semesterId);
-                    int count = (int)command.ExecuteScalar();
+                    int count = Convert.ToInt32(command.ExecuteScalar());
                     if (count == 0)
                     {
                         MessageBox.Show("Invalid Semester ID. Please enter a valid semester.");
@@ -40,8 +40,9 @@ namespace DBS25P131.DataAccessLayer
                 {
                     command.Parameters.AddWithValue("@FacultyId", facultyId);
                     command.Parameters.AddWithValue("@RoomId", roomId);
-                    command.Parameters.AddWithValue("@ReservedHours", semesterId);
-                    command.Parameters.AddWithValue("@SemesterId", reservedHours);
+                    command.Parameters.AddWithValue("@ReservedHours", reservedHours); 
+                    command.Parameters.AddWithValue("@SemesterId", semesterId);       
+
 
                     return command.ExecuteNonQuery() > 0;
                 }
@@ -57,10 +58,10 @@ namespace DBS25P131.DataAccessLayer
                                     r.room_id, r.room_name, 
                                     fra.reserved_hours, 
                                     s.semester_id, s.term, s.year 
-                             FROM Faculty_Room_Allocations fra
-                             JOIN Faculty f ON fra.faculty_id = f.faculty_id
-                             JOIN Rooms r ON fra.room_id = r.room_id
-                             JOIN Semesters s ON fra.semester_id = s.semester_id";
+                             FROM faculty_room_allocations fra
+                             JOIN faculty f ON fra.faculty_id = f.faculty_id
+                             JOIN rooms r ON fra.room_id = r.room_id
+                             JOIN semesters s ON fra.semester_id = s.semester_id";
 
             using (var connection = DatabaseHelper.Instance.GetConnection())
             {
@@ -104,7 +105,7 @@ namespace DBS25P131.DataAccessLayer
         }
         public bool Update(int allocationId, int facultyId, int roomId, int semesterId, int reservedHours)
         {
-            string query = @"UPDATE FacultyRoomAllocations 
+            string query = @"UPDATE faculty_room_allocations 
                                  SET faculty_id = @FacultyId, room_id = @RoomId, reserved_hours = @ReservedHours, semester_id = @SemesterId
                                  WHERE allocation_id = @AllocationId";
             using (var connection = DatabaseHelper.Instance.GetConnection())

@@ -61,6 +61,42 @@ namespace DBS25P131.DataAccessLayer
             }
             return unassignedCourses;
         }
+        public List<Course> GetAssignedCoursesByUserId(int userId)
+        {
+            List<Course> assignedCourses = new List<Course>();
+            string query = @"
+    SELECT c.course_id, c.course_name, c.course_type, c.credit_hours, c.contact_hours
+    FROM users u
+    JOIN faculty f ON u.user_id = f.user_id
+    JOIN faculty_courses fc ON f.faculty_id = fc.faculty_id
+    JOIN courses c ON fc.course_id = c.course_id
+    WHERE u.user_id = @UserId;";
+
+            using (var connection = DatabaseHelper.Instance.GetConnection())
+            using (var command = new MySqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@UserId", userId);
+
+                connection.Open();
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        assignedCourses.Add(new Course
+                        {
+                            CourseId = Convert.ToInt32(reader["course_id"]),
+                            CourseName = reader["course_name"].ToString(),
+                            CourseType = reader["course_type"].ToString(),
+                            CreditHours = Convert.ToInt32(reader["credit_hours"]),
+                            ContactHours = Convert.ToInt32(reader["contact_hours"])
+                        });
+                    }
+                }
+            }
+            return assignedCourses;
+        }
+
+
         public bool InsertCourse(Course course)
         {
             string query = "INSERT INTO courses (course_name, course_type, credit_hours, contact_hours) " +
