@@ -18,6 +18,10 @@ namespace DBS25P131.Business_Logic_Layer
         {
             return _courseDal.GetAllCourses();
         }
+        public List<Course> GetAssignedCoursesByUserId(int userId)
+        {
+            return _courseDal.GetAssignedCoursesByUserId(userId);
+        }
 
         public bool AddCourse(Course course)
         {

@@ -36,7 +36,11 @@ namespace DBS25P131.BusinessLayer
             return consumableDAL.UpdateConsumable(consumable);
         }
 
-        
+        public int GetItemIdByName(string itemName)
+        {
+            return consumableDAL.GetItemIdByName(itemName);
+        }
+
         public bool DeleteConsumable(int id)
         {
             return consumableDAL.DeleteConsumable(id);

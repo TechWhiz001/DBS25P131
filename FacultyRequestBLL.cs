@@ -22,12 +22,22 @@ namespace DBS25P131.BusinessLayer
         {
             return facultyRequestDAL.GetAllFacultyRequests();
         }
+        
+      public bool insertFacultyRequest(int fid,int itemid,int quan,int name ,string date)
+        {
+            return facultyRequestDAL.InsertFacultyRequest(fid,itemid,quan, name,date);
+        }
 
         public FacultyRequest GetFacultyRequestById(int requestId)
         {
             return facultyRequestDAL.GetFacultyRequestById(requestId);
         }
 
+        public List<FacultyRequest> GetRequestsByFacultyId(int facultyId)
+
+        {
+            return facultyRequestDAL.GetRequestsByFacultyId(facultyId);
+        }
         public bool UpdateFacultyRequestStatus(int requestId, int statusId)
         {
             FacultyRequest request = facultyRequestDAL.GetFacultyRequestById(requestId);

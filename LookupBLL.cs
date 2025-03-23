@@ -39,5 +39,10 @@ namespace DBS25P131.BusinessLayer
             }
             return lookupDAL.DeleteLookup(lookupId);
         }
+        public int getItemIdByName(string itemName)
+        {
+            return lookupDAL.GetItemIdByName(itemName);
+        }
+
     }
 }

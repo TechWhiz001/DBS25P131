@@ -33,7 +33,11 @@ namespace DBS25P131.BusinessLayer
             return facultyProjectDAL.DeleteFacultyProject(facultyProjectId);
         }
 
+        public bool ExistsAssignment(int facultyId, int projectId, int semesterId)
 
+        {
+            return facultyProjectDAL.ExistsAssignment(facultyId, projectId, semesterId);
+        }
         public bool insertFacultyProject(int f, int p, int s, int h)
         {
             return facultyProjectDAL.InsertFacultyProject(f, s, p, h);

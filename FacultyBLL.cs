@@ -26,9 +26,12 @@ namespace DBS25P131.BusinessLayer
 
         public bool UpdateFaculty(int id ,string name, string email, int designationId, string contact, string researchArea, int totalHours, int user_id)
         {
-            return facultyDal.UpdateFaculty(id, name, email, designationId, contact, researchArea, totalHours, user_id);
+            return facultyDal.InsertOrUpdateFaculty(id, name, email, designationId, contact, researchArea, totalHours, user_id);
         }
-
+        public int GetFacultyIdByUserId(int userId)
+        {
+            return facultyDal.GetFacultyIdByUserId(userId);
+        }
         public bool DeleteFaculty(int facultyId)
         {
             return facultyDal.DeleteFaculty(facultyId);
