@@ -13,9 +13,12 @@ namespace DBS25P131
             ApplicationConfiguration.Initialize();
             //Application.Run(new loginForm());
             //Application.Run(new DBS25P131.HeadDepartment());
-            //Application.Run(new DBS25P131.HeadDepart());
+            //Application.Run(new DBS25P131.Administrator());
 
-            Application.Run(new DBS25P131.signUp());
+            //Application.Run(new DBS25P131.facultyMember());
+
+            Application.Run(new DBS25P131.faculty_course_schedule());
+
 
         }
     }
