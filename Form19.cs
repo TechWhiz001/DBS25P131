@@ -15,25 +15,25 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DBS25P131
 {
-    public partial class semestersForm : Form
+    public partial class semestersAllocationForm : Form
     {
         private SemesterBLL semesterbll = new SemesterBLL();
         private int semesterId;
         private int year;
         private string stype;
-        private List<semestersForm> semesterassign;
-        public semestersForm()
+        private List<semestersAllocationForm> semesterassign;
+        public semestersAllocationForm()
         {
             InitializeComponent();
         }
-        private static semestersForm instance;
-        public static semestersForm Instance
+        private static semestersAllocationForm instance;
+        public static semestersAllocationForm Instance
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = new semestersForm();
+                    instance = new semestersAllocationForm();
                 }
                 return instance;
             }

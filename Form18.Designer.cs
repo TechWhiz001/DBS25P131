@@ -28,20 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel2 = new Panel();
-            comboBox1 = new ComboBox();
-            label4 = new Label();
-            button6 = new Button();
-            button5 = new Button();
-            button4 = new Button();
-            button3 = new Button();
-            textBox6 = new TextBox();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            button2 = new Button();
-            label8 = new Label();
-            label3 = new Label();
-            label2 = new Label();
             panel1 = new Panel();
             dataGridView1 = new DataGridView();
             course_id = new DataGridViewTextBoxColumn();
@@ -49,174 +35,40 @@
             email = new DataGridViewTextBoxColumn();
             contact = new DataGridViewTextBoxColumn();
             label1 = new Label();
-            panel2.SuspendLayout();
+            groupBox1 = new GroupBox();
+            button1 = new Button();
+            label4 = new Label();
+            RAssignbutton = new Button();
+            label8 = new Label();
+            label3 = new Label();
+            captextBox1 = new TextBox();
+            RtypetextBox1 = new TextBox();
+            RntextBox2 = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            groupBox1.SuspendLayout();
             SuspendLayout();
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.FromArgb(240, 187, 120);
-            panel2.Controls.Add(comboBox1);
-            panel2.Controls.Add(label4);
-            panel2.Controls.Add(button6);
-            panel2.Controls.Add(button5);
-            panel2.Controls.Add(button4);
-            panel2.Controls.Add(button3);
-            panel2.Controls.Add(textBox6);
-            panel2.Controls.Add(textBox3);
-            panel2.Controls.Add(textBox2);
-            panel2.Controls.Add(button2);
-            panel2.Controls.Add(label8);
-            panel2.Controls.Add(label3);
-            panel2.Controls.Add(label2);
-            panel2.Location = new Point(36, 321);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(891, 315);
-            panel2.TabIndex = 13;
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Classroom", "Lab" });
-            comboBox1.Location = new Point(600, 21);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(260, 25);
-            comboBox1.TabIndex = 36;
-            // 
-            // label4
-            // 
-            label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(461, 23);
-            label4.Name = "label4";
-            label4.Size = new Size(106, 23);
-            label4.TabIndex = 35;
-            label4.Text = "Room_type";
-            // 
-            // button6
-            // 
-            button6.BackColor = Color.FromArgb(19, 16, 16);
-            button6.ForeColor = Color.White;
-            button6.Location = new Point(746, 180);
-            button6.Name = "button6";
-            button6.Size = new Size(75, 32);
-            button6.TabIndex = 33;
-            button6.Text = "Save";
-            button6.UseVisualStyleBackColor = false;
-            // 
-            // button5
-            // 
-            button5.BackColor = Color.FromArgb(19, 16, 16);
-            button5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button5.ForeColor = Color.White;
-            button5.Location = new Point(127, 180);
-            button5.Name = "button5";
-            button5.Size = new Size(76, 34);
-            button5.TabIndex = 32;
-            button5.Text = "Add";
-            button5.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            button4.BackColor = Color.FromArgb(19, 16, 16);
-            button4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.ForeColor = Color.White;
-            button4.Location = new Point(283, 180);
-            button4.Name = "button4";
-            button4.Size = new Size(95, 34);
-            button4.TabIndex = 31;
-            button4.Text = "Update";
-            button4.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            button3.BackColor = Color.FromArgb(19, 16, 16);
-            button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.ForeColor = Color.White;
-            button3.Location = new Point(202, 241);
-            button3.Name = "button3";
-            button3.Size = new Size(86, 34);
-            button3.TabIndex = 30;
-            button3.Text = "Delate";
-            button3.UseVisualStyleBackColor = false;
-            // 
-            // textBox6
-            // 
-            textBox6.Location = new Point(600, 64);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(260, 25);
-            textBox6.TabIndex = 29;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(159, 66);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(260, 25);
-            textBox3.TabIndex = 26;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(159, 21);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(260, 25);
-            textBox2.TabIndex = 25;
-            // 
-            // button2
-            // 
-            button2.BackColor = Color.FromArgb(19, 16, 16);
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(600, 180);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 32);
-            button2.TabIndex = 22;
-            button2.Text = "Cancel";
-            button2.UseVisualStyleBackColor = false;
-            // 
-            // label8
-            // 
-            label8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(461, 64);
-            label8.Name = "label8";
-            label8.Size = new Size(117, 23);
-            label8.TabIndex = 21;
-            label8.Text = "Capacity";
-            // 
-            // label3
-            // 
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(4, 66);
-            label3.Name = "label3";
-            label3.Size = new Size(106, 23);
-            label3.TabIndex = 16;
-            label3.Text = "Room_name";
-            // 
-            // label2
-            // 
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(4, 21);
-            label2.Name = "label2";
-            label2.Size = new Size(134, 24);
-            label2.TabIndex = 15;
-            label2.Text = "Room_id";
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = Color.FromArgb(240, 187, 120);
             panel1.Controls.Add(dataGridView1);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(36, 17);
+            panel1.Location = new Point(-1, -2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(891, 283);
+            panel1.Size = new Size(963, 302);
             panel1.TabIndex = 12;
             // 
             // dataGridView1
             // 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { course_id, name, email, contact });
-            dataGridView1.Location = new Point(30, 42);
+            dataGridView1.Location = new Point(25, 42);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(842, 220);
+            dataGridView1.Size = new Size(909, 220);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // course_id
             // 
@@ -249,46 +101,143 @@
             label1.TabIndex = 0;
             label1.Text = "Rooms";
             // 
+            // groupBox1
+            // 
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox1.BackColor = Color.FromArgb(240, 187, 120);
+            groupBox1.Controls.Add(RntextBox2);
+            groupBox1.Controls.Add(RtypetextBox1);
+            groupBox1.Controls.Add(captextBox1);
+            groupBox1.Controls.Add(button1);
+            groupBox1.Controls.Add(label4);
+            groupBox1.Controls.Add(RAssignbutton);
+            groupBox1.Controls.Add(label8);
+            groupBox1.Controls.Add(label3);
+            groupBox1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBox1.Location = new Point(-1, 306);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(963, 348);
+            groupBox1.TabIndex = 1;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Rooms Details";
+            groupBox1.Enter += groupBox1_Enter;
+            // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            button1.BackColor = Color.FromArgb(19, 16, 16);
+            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(13, 300);
+            button1.Name = "button1";
+            button1.Size = new Size(111, 34);
+            button1.TabIndex = 50;
+            button1.Text = "Go to Back";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // label4
+            // 
+            label4.Anchor = AnchorStyles.None;
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Location = new Point(59, 176);
+            label4.Name = "label4";
+            label4.Size = new Size(106, 23);
+            label4.TabIndex = 48;
+            label4.Text = "Room_type";
+            // 
+            // RAssignbutton
+            // 
+            RAssignbutton.Anchor = AnchorStyles.None;
+            RAssignbutton.BackColor = Color.FromArgb(19, 16, 16);
+            RAssignbutton.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            RAssignbutton.ForeColor = Color.White;
+            RAssignbutton.Location = new Point(816, 192);
+            RAssignbutton.Name = "RAssignbutton";
+            RAssignbutton.Size = new Size(75, 32);
+            RAssignbutton.TabIndex = 47;
+            RAssignbutton.Text = "Save";
+            RAssignbutton.UseVisualStyleBackColor = false;
+            RAssignbutton.Click += RAssignbutton_Click;
+            // 
+            // label8
+            // 
+            label8.Anchor = AnchorStyles.None;
+            label8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.Location = new Point(524, 95);
+            label8.Name = "label8";
+            label8.Size = new Size(117, 23);
+            label8.TabIndex = 39;
+            label8.Text = "Capacity";
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.None;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(59, 91);
+            label3.Name = "label3";
+            label3.Size = new Size(106, 23);
+            label3.TabIndex = 38;
+            label3.Text = "Room_name";
+            // 
+            // captextBox1
+            // 
+            captextBox1.Location = new Point(632, 89);
+            captextBox1.Name = "captextBox1";
+            captextBox1.Size = new Size(260, 33);
+            captextBox1.TabIndex = 129;
+            captextBox1.TextChanged += captextBox1_TextChanged;
+            // 
+            // RtypetextBox1
+            // 
+            RtypetextBox1.Location = new Point(181, 176);
+            RtypetextBox1.Name = "RtypetextBox1";
+            RtypetextBox1.Size = new Size(260, 33);
+            RtypetextBox1.TabIndex = 130;
+            RtypetextBox1.TextChanged += RtypetextBox1_TextChanged;
+            // 
+            // RntextBox2
+            // 
+            RntextBox2.Location = new Point(181, 85);
+            RntextBox2.Name = "RntextBox2";
+            RntextBox2.Size = new Size(260, 33);
+            RntextBox2.TabIndex = 131;
+            RntextBox2.TextChanged += RntextBox2_TextChanged;
+            // 
             // RoomAllocationForm
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(962, 652);
-            Controls.Add(panel2);
+            Controls.Add(groupBox1);
             Controls.Add(panel1);
             MinimumSize = new Size(978, 691);
             Name = "RoomAllocationForm";
             Text = "rooms";
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
+            Load += RoomAllocationForm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Panel panel2;
-        private Label label4;
-        private Button button6;
-        private Button button5;
-        private Button button4;
-        private Button button3;
-        private TextBox textBox6;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private Button button2;
-        private Label label8;
-        private Label label3;
-        private Label label2;
         private Panel panel1;
         private DataGridView dataGridView1;
         private Label label1;
-        private ComboBox comboBox1;
         private DataGridViewTextBoxColumn course_id;
         private DataGridViewTextBoxColumn name;
         private DataGridViewTextBoxColumn email;
         private DataGridViewTextBoxColumn contact;
+        private GroupBox groupBox1;
+        private Label label4;
+        private Button RAssignbutton;
+        private Label label8;
+        private Label label3;
+        private Button button1;
+        private TextBox RntextBox2;
+        private TextBox RtypetextBox1;
+        private TextBox captextBox1;
     }
 }

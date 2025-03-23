@@ -14,7 +14,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DBS25P131
 {
-    public partial class ProjectForm : Form
+    public partial class ProjectAllocationForm : Form
     {
         private ProjectBLL projectbll = new ProjectBLL();
         private int projectId;
@@ -22,7 +22,7 @@ namespace DBS25P131
         private string description;
         private List<Project> projectallocate;
 
-        public ProjectForm()
+        public ProjectAllocationForm()
         {
             InitializeComponent();
         }

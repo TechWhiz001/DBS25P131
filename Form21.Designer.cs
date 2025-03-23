@@ -40,9 +40,9 @@
             label2 = new Label();
             panel1 = new Panel();
             dataGridView1 = new DataGridView();
-            label1 = new Label();
             course_id = new DataGridViewTextBoxColumn();
             name = new DataGridViewTextBoxColumn();
+            label1 = new Label();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -174,17 +174,6 @@
             dataGridView1.Size = new Size(842, 220);
             dataGridView1.TabIndex = 0;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(374, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(143, 30);
-            label1.TabIndex = 0;
-            label1.Text = "Consumables";
-            label1.Click += label1_Click;
-            // 
             // course_id
             // 
             course_id.HeaderText = "Consumable_id";
@@ -196,6 +185,17 @@
             name.Name = "name";
             name.Resizable = DataGridViewTriState.True;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(374, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(143, 30);
+            label1.TabIndex = 0;
+            label1.Text = "Consumables";
+            label1.Click += label1_Click;
+            // 
             // Form21
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
@@ -205,7 +205,7 @@
             Controls.Add(panel1);
             MinimumSize = new Size(978, 691);
             Name = "Form21";
-            Text = "consumables";
+            Text = "consumablesform";
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel1.ResumeLayout(false);
